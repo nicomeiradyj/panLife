@@ -66,3 +66,17 @@ p {
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}

@@ -66,17 +66,27 @@ p {
   margin: 0 auto;
 }
 
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 40px;
+}
+
 @media (max-width: 768px) {
   .contenedor {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
-  img {
-    width: 100%;
+  .contenedor > div {
+    max-width: 90% !important;
+    margin: 10px 0;
   }
 
-  h1 {
-    font-size: 24px;
+  h2, h3 {
+    margin: 0;
   }
 }

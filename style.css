@@ -66,27 +66,40 @@ p {
   margin: 0 auto;
 }
 
-.contenedor {
+.seccion-doble {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
   margin: 40px;
+  gap: 20px;
+}
+
+.columna {
+  width: 45%;
+}
+
+.izquierda {
+  text-align: left;
+}
+
+.derecha {
+  text-align: right;
 }
 
 @media (max-width: 768px) {
-  .contenedor {
+  .seccion-doble {
     flex-direction: column;
     align-items: center;
+  }
+
+  .columna {
+    width: 90%;
     text-align: center;
   }
 
-  .contenedor > div {
-    max-width: 90% !important;
-    margin: 10px 0;
-  }
-
-  h2, h3 {
-    margin: 0;
+  .izquierda,
+  .derecha {
+    text-align: center;
   }
 }

@@ -131,6 +131,7 @@ p {
   .seccion-doble {
     flex-direction: column;
     align-items: center;
+    margin: 20px;
   }
 
   .columna {
@@ -154,3 +155,30 @@ p {
   text-decoration: none;
   cursor: pointer;
 }
+
+.izquierda h2,
+  .derecha h2 {
+    margin: 0 auto; /* Elimina márgenes extremos */
+    text-align: center;
+  }
+
+  p {
+    width: 90%;
+    font-size: 1em;
+  }
+
+  .titulo p {
+    margin-left: 0; /* Evita desplazamientos en móvil */
+    font-size: 1em;
+  }
+
+  .menu .botones button {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .imagen-soluciones-en-panificados-central {
+    width: 80%;
+    height: auto;
+  }
+

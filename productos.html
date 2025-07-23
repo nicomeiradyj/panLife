@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Productos Panificados</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #fffbea; }
+    .producto { border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 15px; }
+    .nombre { font-weight: bold; font-size: 1.2em; color: #8b0000; }
+    .descripcion { font-style: italic; margin-bottom: 5px; }
+    .precio { color: #444; }
+  </style>
+</head>
+<body>
+  <h1>Lista de Productos</h1>
+  <div id="productos">Cargando productos...</div>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    google.charts.load('current', {'packages':['table']});
+    google.charts.setOnLoadCallback(drawProductos);
+
+    function drawProductos() {
+      const query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1daQpoY8dLTB2YpopQN5iHGPmFzMTGMuxD_CY5E66Gx4/gviz/tq?sheet=Hoja%201');
+      query.send(handleResponse);
+    }
+
+    function handleResponse(response) {
+      if (response.isError()) {
+        document.getElementById("productos").innerText = "No se pudieron cargar los productos.";
+        console.error(response.getMessage(), response.getDetailedMessage());
+        return;
+      }
+
+      const data = response.getDataTable();
+      const contenedor = document.getElementById("productos");
+      contenedor.innerHTML = "";
+
+      for (let i = 0; i < data.getNumberOfRows(); i++) {
+        const nombre = data.getValue(i, 0); // Columna 1
+        const descripcion = data.getValue(i, 1); // Columna 2
+
+        const html = `
+          <div class="producto">
+            <div class="nombre">${nombre}</div>
+            <div class="descripcion">${descripcion}</div>
+            <div class="precio">💬 Consultar precio vía <a href="https://wa.me/5491140421634" target="_blank">WhatsApp</a></div>
+          </div>
+        `;
+        contenedor.innerHTML += html;
+      }
+    }
+  </script>
+</body>
+</html>
+

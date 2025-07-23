@@ -19,9 +19,15 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2fab6f;  
+  background-color: #2fab6f;
   color: white;
   padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .menu .logo {
@@ -29,13 +35,39 @@ p {
   font-weight: bold;
 }
 
+.logo {
+  width: 30%;
+}
+
+.titulo {
+  width: 40%;
+  text-align: center;
+}
+
+.titulo p {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 130px;
+}
+
 .menu .botones button {
   background: none;
   border: none;
   color: white;
   margin-left: 15px;
+  margin-right: 40px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.menu .botones {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  margin-right: 20px;
 }
 
 .menu .botones button:hover {
@@ -83,8 +115,16 @@ p {
   text-align: left;
 }
 
+.izquierda h2 {
+  margin-left: 290px; /* mueve el header de la izquierda un poco a la derecha */
+}
+
 .derecha {
   text-align: right;
+}
+
+.derecha h2 {
+  margin-right: 350px; /* mueve el header de la derecha un poco a la izquierda */
 }
 
 @media (max-width: 768px) {
@@ -102,4 +142,15 @@ p {
   .derecha {
     text-align: center;
   }
+}
+
+.boton-contacto {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
 }

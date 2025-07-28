@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Productos Panificados</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background-color: whitesmoke; }
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: rgb(255, 255, 255); }
     .producto { border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 15px; }
     .nombre { font-weight: bold; font-size: 1.2em; color: #8b0000; }
     .descripcion { font-style: italic; margin-bottom: 5px; }
@@ -58,7 +58,7 @@
       const contenedor = document.getElementById("productos");
       contenedor.innerHTML = "";
 
-      for (let i = 0; i < data.getNumberOfRows(); i++) {
+      for (let i = 1; i < data.getNumberOfRows(); i++) {
         const nombre = data.getValue(i, 0); // Columna 1
         const descripcion = data.getValue(i, 1); // Columna 2
 

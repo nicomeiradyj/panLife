@@ -251,3 +251,10 @@ p {
 .boton-contacto:visited {
   color: white;
 }
+
+.logo-instagram {
+  width: 100px; /* Tamaño del logo en PC y Celular */
+  height: auto; /* Mantiene la proporción */
+  display: block; /* Asegura que no haya espacio extra debajo */
+  margin: 20px auto; /* Centra el logo horizontalmente y le da espacio arriba/abajo */
+}

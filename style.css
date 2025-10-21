@@ -161,25 +161,35 @@ p {
 
   /* Hacemos que los 3 contenedores (logo, titulo, botones) ocupen el 100% */
   /* y centramos su contenido */
-  .logo,
+ .logo,
   .titulo,
   .botones {
     width: 100%;
-    display: flex; /* Asegura que sean contenedores flex para centrar */
-    justify-content: center; /* Centra horizontalmente su contenido */
-    align-items: center; /* Centra verticalmente su contenido (si hay más de una línea) */
-    text-align: center; /* Asegura que el texto dentro también se centre */
-    margin: 0; /* RESETA TODOS LOS MÁRGENES (importante) */
-    padding: 5px 0; /* Un pequeño padding vertical para espacio */
+    margin: 0; /* Resetea márgenes */
   }
   
-  /* Damos un poco de espacio entre los elementos apilados */
+  /* Centramos el logo (que es una <a> con una <img>) */
   .logo {
-     margin-bottom: 10px;
+     display: flex;
+     justify-content: center;
+     padding: 5px 0;
+     margin-bottom: 10px; /* Damos espacio debajo del logo */
   }
 
+  /* Centramos el título (que es un <p>) */
   .titulo {
-     margin-bottom: 15px;
+     text-align: center;
+     padding: 5px 0;
+     margin-bottom: 15px; /* Damos espacio debajo del título */
+  }
+
+  /* Le decimos a la caja de botones que apile sus hijos */
+  .botones {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Centra los botones en esa columna */
+    gap: 15px; /* Espacio entre "Productos" y "Contacto" */
+    padding: 5px 0;
   }
 
   /* Otras Reglas de Celular */

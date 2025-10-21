@@ -151,49 +151,52 @@ p {
 
 @media (max-width: 768px) {
   
-  /* REGLAS DEL MENÚ */
-
-  .menu {
-    flex-direction: column; /* Apila los elementos verticalmente */
-    padding-top: 15px;
-    padding-bottom: 15px; /* Damos un poco más de espacio */
+  /* PASO 1: ARREGLAR EL CONTENIDO TAPADO
+    Le decimos al body que empiece 180px más abajo,
+    para dejarle lugar al menú fijo de arriba.
+  */
+  body {
+    padding-top: 180px; 
   }
 
-  /* Hacemos que los 3 contenedores (logo, titulo, botones) ocupen el 100% */
-  /* y centramos su contenido */
- .logo,
+  /* PASO 2: ARREGLAR EL MENÚ (TAMAÑO Y CENTRADO)
+  */
+  .menu {
+    flex-direction: column;  /* Apila los elementos */
+    padding: 10px 0;       /* Menos padding arriba/abajo Y CERO a los lados */
+  }
+
+  /* Hacemos que los 3 contenedores ocupen el 100% */
+  .logo,
   .titulo,
   .botones {
     width: 100%;
-    margin: 0; /* Resetea márgenes */
+    margin: 0; /* Reseteamos márgenes raros */
   }
   
-  /* Centramos el logo (que es una <a> con una <img>) */
+  /* Centramos el logo (ahora sí va a funcionar) */
   .logo {
      display: flex;
      justify-content: center;
-     padding: 5px 0;
-     margin-bottom: 10px; /* Damos espacio debajo del logo */
   }
 
-  /* Centramos el título (que es un <p>) */
+  /* Centramos el título y le damos un poco de aire (mucho menos que antes) */
   .titulo {
      text-align: center;
-     padding: 5px 0;
-     margin-bottom: 15px; /* Damos espacio debajo del título */
+     margin-top: 10px;
+     margin-bottom: 12px;
   }
 
-  /* Le decimos a la caja de botones que apile sus hijos */
+  /* Apilamos y centramos los botones */
   .botones {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; /* Centra los botones en esa columna */
-    gap: 15px; /* Espacio entre "Productos" y "Contacto" */
-    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; /* Menos espacio entre botones */
   }
 
-  /* Otras Reglas de Celular */
-
+  /* PASO 3: TUS OTRAS REGLAS DE MÓVIL (Las volví a copiar)
+  */
   .seccion-doble {
     flex-direction: column;
     align-items: center;
@@ -216,28 +219,30 @@ p {
     text-align: center;
   }
 
+  /* La regla 'p' general tiene que ir ANTES de '.titulo p' */
   p {
     width: 90%;
     font-size: 1em;
   }
 
   .titulo p {
-    margin-left: 0; /* Esto ahora sí va a centrar tu título */
-    font-size: 1em;
+    margin-left: 0; /* Esto centra tu título */
+    font-size: 1.1em; /* Un poco más grande para que se lea */
   }
 
+  /* Esta regla ya no aplica porque usamos <a>, no <button> */
   .menu .botones button {
     font-size: 16px;
     margin-right: 10px;
   }
 
   .imagen-soluciones-en-panificados-central {
-    width: 50%; /* Lo ajusté un poco más que tu 42% */
+    width: 50%;
     height: auto;
   }
 
   .boton-menu, .boton-contacto {
-    font-size: 18px; /* Hacemos los botones un poco más grandes */
+    font-size: 18px;
     padding: 5px 0;
   }
 }

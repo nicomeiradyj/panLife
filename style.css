@@ -160,13 +160,17 @@ p {
   }
 
   /* Hacemos que los 3 contenedores (logo, titulo, botones) ocupen el 100% */
+  /* y centramos su contenido */
   .logo,
   .titulo,
   .botones {
     width: 100%;
-    justify-content: center; /* Centra el contenido (botones) */
-    text-align: center; /* Centra el contenido (logo, titulo) */
-    margin-right: 0; /* Resetea el margen de .botones */
+    display: flex; /* Asegura que sean contenedores flex para centrar */
+    justify-content: center; /* Centra horizontalmente su contenido */
+    align-items: center; /* Centra verticalmente su contenido (si hay más de una línea) */
+    text-align: center; /* Asegura que el texto dentro también se centre */
+    margin: 0; /* RESETA TODOS LOS MÁRGENES (importante) */
+    padding: 5px 0; /* Un pequeño padding vertical para espacio */
   }
   
   /* Damos un poco de espacio entre los elementos apilados */

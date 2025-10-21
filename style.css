@@ -74,6 +74,28 @@ p {
   text-decoration: underline;
 }
 
+
+/* Estilos para los LINKS del menú en PC (Productos y Contacto) */
+.boton-menu,
+.boton-contacto {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px; /* <-- PASO 1: Mismo tamaño para ambos */
+  padding: 8px 12px;
+  cursor: pointer;
+  text-decoration: none; /* Saca el subrayado por defecto */
+  display: inline-flex; /* Ayuda a alinear bien el ícono de WhatsApp */
+  align-items: center;
+}
+
+/* Subrayado al pasar el mouse por AMBOS */
+.boton-menu:hover,
+.boton-contacto:hover {
+  text-decoration: underline;
+}
+
+
 /* Imagen horizontal */
 .imagen-superior-horizontal {
   width: 100%;
@@ -128,6 +150,36 @@ p {
 }
 
 @media (max-width: 768px) {
+  
+  /* REGLAS DEL MENÚ */
+
+  .menu {
+    flex-direction: column; /* Apila los elementos verticalmente */
+    padding-top: 15px;
+    padding-bottom: 15px; /* Damos un poco más de espacio */
+  }
+
+  /* Hacemos que los 3 contenedores (logo, titulo, botones) ocupen el 100% */
+  .logo,
+  .titulo,
+  .botones {
+    width: 100%;
+    justify-content: center; /* Centra el contenido (botones) */
+    text-align: center; /* Centra el contenido (logo, titulo) */
+    margin-right: 0; /* Resetea el margen de .botones */
+  }
+  
+  /* Damos un poco de espacio entre los elementos apilados */
+  .logo {
+     margin-bottom: 10px;
+  }
+
+  .titulo {
+     margin-bottom: 15px;
+  }
+
+  /* Otras Reglas de Celular */
+
   .seccion-doble {
     flex-direction: column;
     align-items: center;
@@ -143,22 +195,10 @@ p {
   .derecha {
     text-align: center;
   }
-}
 
-.boton-contacto {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.izquierda h2,
+  .izquierda h2,
   .derecha h2 {
-    margin: 0 auto; /* Elimina márgenes extremos */
+    margin: 0 auto;
     text-align: center;
   }
 
@@ -168,7 +208,7 @@ p {
   }
 
   .titulo p {
-    margin-left: 0; /* Evita desplazamientos en móvil */
+    margin-left: 0; /* Esto ahora sí va a centrar tu título */
     font-size: 1em;
   }
 
@@ -178,21 +218,17 @@ p {
   }
 
   .imagen-soluciones-en-panificados-central {
-    width: 42%;
+    width: 50%; /* Lo ajusté un poco más que tu 42% */
     height: auto;
   }
 
-.boton-menu {
-  background: none;
-  border: none;
+  .boton-menu, .boton-contacto {
+    font-size: 18px; /* Hacemos los botones un poco más grandes */
+    padding: 5px 0;
+  }
+}
+
+.boton-menu:visited,    /* Arregla el color violeta del Visited */
+.boton-contacto:visited {
   color: white;
-  font-size: 20px;
-  padding: 8px 12px;
-  cursor: pointer;
-  text-decoration: none;
 }
-
-.boton-menu:hover {
-  text-decoration: underline;
-}
-

@@ -6,6 +6,8 @@ body {
     background-position: center center;
     background-repeat:  no-repeat;
     background-size: cover;
+    background-color: #fdfbf7; /* ESTE ES EL CAMBIO: Todo beige suave */
+    color: #333; /* Color de letra gris oscuro suave */
 }
 
 p {
@@ -257,4 +259,65 @@ p {
   height: auto; /* Mantiene la proporción */
   display: block; /* Asegura que no haya espacio extra debajo */
   margin: 20px auto; /* Centra el logo horizontalmente y le da espacio arriba/abajo */
+}
+
+/* --- Estilos del Carrusel --- */
+.slider-frame {
+    width: 90%; /* Ancho del carrusel */
+    max-width: 800px; /* Ancho máximo para PC */
+    margin: 30px auto; /* Centrado */
+    overflow: hidden; /* Oculta lo que se sale del marco */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Sombrita linda */
+}
+
+.slider-frame ul {
+    display: flex;
+    padding: 0;
+    width: 400%; /* 4 imágenes = 400% ancho */
+    animation: slide 20s infinite alternate ease-in-out;
+}
+
+.slider-frame li {
+    list-style: none;
+    width: 100%;
+}
+
+.slider-frame img {
+    width: 100%;
+    height: 300px; /* Altura fija para que no salten */
+    object-fit: cover; /* Recorta la imagen para que llene el espacio sin deformarse */
+}
+
+/* Animación */
+@keyframes slide {
+    0% { margin-left: 0; }
+    20% { margin-left: 0; }
+    
+    25% { margin-left: -100%; }
+    45% { margin-left: -100%; }
+    
+    50% { margin-left: -200%; }
+    70% { margin-left: -200%; }
+    
+    75% { margin-left: -300%; }
+    100% { margin-left: -300%; }
+}
+
+@media (max-width: 768px) {
+    .slider-frame img {
+        height: 200px; /* Un poco más chico en celulares */
+    }
+}
+
+/* Estilo Tarjeta Flotante */
+.tarjeta-destacada {
+    background-color: #ffffff; /* Blanco puro */
+    max-width: 800px; /* Que no sea ancho total */
+    margin: 40px auto; /* Centrado y con aire arriba/abajo */
+    padding: 40px;
+    border-radius: 20px; /* Bordes bien redondeados */
+    box-shadow: 0 10px 25px rgba(211, 84, 0, 0.1); /* Sombrita naranja muy suave */
+    text-align: center;
+    border: 1px solid #fae5d3; /* Borde muy finito color pan */
 }

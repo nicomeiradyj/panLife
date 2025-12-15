@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Productos Panificados</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background-color: rgb(255, 255, 255); }
+  <style> 
+    body { 
+        font-family: Arial, sans-serif; 
+        background-color: rgb(255, 255, 255);
+        margin: 0;
+    }
+
+    h1 {
+        margin-top: 90px; /* Esto lo despega del techo */
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    #productos {
+        max-width: 1200px;  
+        margin: 0 auto;    
+        padding: 0 20px;  
+    }
+
     .producto { border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 15px; }
     .nombre { font-weight: bold; font-size: 1.2em; color: #8b0000; }
     .descripcion { font-style: italic; margin-bottom: 5px; }
@@ -19,7 +36,7 @@
   <div class="menu">
   <!-- Logo a la izquierda -->
     <div class="logo">
-      <a href="productos.html">
+      <a href="index.html">
         <img src="panlife-grande.jpg" alt="Logo panLife" style="height: 50px; width: auto;">
       </a>   
     </div>
@@ -29,7 +46,12 @@
   </div>
   <!-- Botones a la derecha -->
   <div class="botones">
-    <a class="boton-menu" href="index.html">Volver a Pagina Principal</a>
+    <a class="boton-menu" href="index.html" style="display: flex; align-items: center; gap: 10px; font-weight: bold;">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width: 24px; height: 24px;">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+    </svg>
+    Volver al Inicio
+    </a>
     <a href="https://wa.me/5491140421634?text=Hola!%20Me%20interesa%20conocer%20mas%20sobre%20los%20productos%20de%20panLife." target="_blank" class="boton-contacto">
         <img src="WhatsApp.svg-removebg-preview.png" alt="WhatsApp" style="height: 20px; vertical-align: middle; margin-right: 8px;">
         Contacto

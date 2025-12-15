@@ -153,22 +153,15 @@ p {
 
 @media (max-width: 768px) {
   
-  /* PASO 1: ARREGLAR EL CONTENIDO TAPADO
-    Le decimos al body que empiece 180px más abajo,
-    para dejarle lugar al menú fijo de arriba.
-  */
   body {
     padding-top: 180px; 
   }
 
-  /* PASO 2: ARREGLAR EL MENÚ (TAMAÑO Y CENTRADO)
-  */
   .menu {
     flex-direction: column;  /* Apila los elementos */
     padding: 10px 0;       /* Menos padding arriba/abajo Y CERO a los lados */
   }
 
-  /* Hacemos que los 3 contenedores ocupen el 100% */
   .logo,
   .titulo,
   .botones {
@@ -187,6 +180,7 @@ p {
      text-align: center;
      margin-top: 10px;
      margin-bottom: 12px;
+     width: 100%;
   }
 
   /* Apilamos y centramos los botones */
@@ -228,9 +222,12 @@ p {
   }
 
   .titulo p {
-    margin-left: 0; /* Esto centra tu título */
-    font-size: 1.1em; /* Un poco más grande para que se lea */
-  }
+  margin-left: 0;
+  font-size: 1.1em;
+  text-align: center; 
+  width: 100%;        
+  margin-right: 0;    
+}
 
   /* Esta regla ya no aplica porque usamos <a>, no <button> */
   .menu .botones button {

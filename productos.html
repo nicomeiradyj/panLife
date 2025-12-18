@@ -640,29 +640,24 @@
     function moverCarrusel(boton, direccion) {
         const contenedor = boton.parentElement;
         const track = contenedor.querySelector('.carrusel-track');
-        
-        const anchoVisible = track.clientWidth;      // Lo que se ve en pantalla
-        const anchoTotal = track.scrollWidth;        // El largo total de toda la tira de productos
-        const posicionActual = track.scrollLeft;     // Qué tan scrolleado estoy (0 es el inicio)
-        const margenError = 10;                      // Un margen chiquito por si el cálculo no es exacto
+        const tarjetas = track.querySelectorAll('.producto-card');
 
-        // 2. Lógica para la DERECHA
-        if (direccion === 1) {
-            if (posicionActual + anchoVisible >= anchoTotal - margenError) {
-                track.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                track.scrollBy({ left: anchoVisible, behavior: 'smooth' });
-            }
-        } 
+        const anchoTarjeta = tarjetas[0].offsetWidth; 
+
+        let indiceActual = Math.round(track.scrollLeft / anchoTarjeta);
         
-        // 3. Lógica para la IZQUIERDA
-        else {
-            if (posicionActual <= margenError) {
-                track.scrollTo({ left: anchoTotal, behavior: 'smooth' });
-            } else {
-                track.scrollBy({ left: -anchoVisible, behavior: 'smooth' });
-            }
+        let siguienteIndice = indiceActual + direccion;
+        
+        if (siguienteIndice < 0) {
+            siguienteIndice = tarjetas.length - 1; // Si voy atrás del 0, voy a la última
+        } else if (siguienteIndice >= tarjetas.length) {
+            siguienteIndice = 0; // Si paso la última, vuelvo a la primera
         }
+        
+        track.scrollTo({
+            left: siguienteIndice * anchoTarjeta,
+            behavior: 'smooth'
+        });
     }
 
     let carrito = [];

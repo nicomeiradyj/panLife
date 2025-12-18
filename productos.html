@@ -30,8 +30,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Lista de Productos</h1>
-  <div id="productos">Cargando productos...</div>
+  <h1>Arma tu Pedido!</h1>
 
   <div class="menu">
   <!-- Logo a la izquierda -->
@@ -59,42 +58,739 @@
   </div>
   </div>
 
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script>
-    google.charts.load('current', {'packages':['table']});
-    google.charts.setOnLoadCallback(drawProductos);
+  <div id="catalogo">
 
-    function drawProductos() {
-      const query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1daQpoY8dLTB2YpopQN5iHGPmFzMTGMuxD_CY5E66Gx4/gviz/tq?sheet=Hoja%201');
-      query.send(handleResponse);
-    }
+<!-- Primer Categoria -->
 
-    function handleResponse(response) {
-      if (response.isError()) {
-        document.getElementById("productos").innerText = "No se pudieron cargar los productos.";
-        console.error(response.getMessage(), response.getDetailedMessage());
-        return;
-      }
+  <h2 class="titulo-categoria">Panificados</h2>
 
-      const data = response.getDataTable();
-      const contenedor = document.getElementById("productos");
-      contenedor.innerHTML = "";
+<div class="contenedor-carrusel">
+    <button class="flecha prev" onclick="moverCarrusel(this, -1)">&#10094;</button>
 
-      for (let i = 1; i < data.getNumberOfRows(); i++) {
-        const nombre = data.getValue(i, 0); // Columna 1
-        const descripcion = data.getValue(i, 1); // Columna 2
+    <div class="carrusel-track">
+        
+        <div class="producto-card">
+            <img src="Imagenes Productos Panificados/baguette.png" alt="Baguette">
+            <h3>Baguette</h3>
+            <div class="controles">
+                <select class="tipo-unidad">
+                    <option value="Unidad">Unidad</option>
+                    <option value="Docena">Kilo</option>
+                </select>
+                <input type="number" class="cantidad" value="1" min="1">
+            </div>
+            <button class="btn-agregar">Agregar al Pedido</button>
+        </div>
 
-        const html = `
-          <div class="producto">
-            <div class="nombre">${nombre}</div>
-            <div class="descripcion">${descripcion}</div>
-            <div class="precio">💬 Consultar precio vía <a href="https://wa.me/5491140421634" target="_blank">WhatsApp</a></div>
+        <div class="producto-card">
+            <img src="Imagenes Productos Panificados/baguetteSalvado.jpg" alt="Baguette de Salvado">
+            <h3>Baguette de Salvado</h3>
+            <div class="controles">
+                 <select class="tipo-unidad">
+                    <option value="Unidad">Unidad</option>
+                    <option value="Docena">Kilo</option>
+                </select>
+                <input type="number" class="cantidad" value="1" min="1">
+            </div>
+            <button class="btn-agregar">Agregar al Pedido</button>
+        </div>
+
+        <div class="producto-card">
+            <img src="Imagenes Productos Panificados/miniBaguette.png" alt="Mini Baguette">
+            <h3>Mini Baguette</h3>
+            <div class="controles">
+                 <select class="tipo-unidad">
+                    <option value="Unidad">Unidad</option>
+                    <option value="Docena">Kilo</option>
+                </select>
+                <input type="number" class="cantidad" value="1" min="1">
+            </div>
+            <button class="btn-agregar">Agregar al Pedido</button>
+        </div>
+
+        <div class="producto-card">
+            <img src="Imagenes Productos Panificados/panflauta.jpg" alt="Flauta">
+            <h3>Flauta</h3>
+            <div class="controles">
+                 <select class="tipo-unidad">
+                    <option value="Unidad">Unidad</option>
+                    <option value="Docena">Kilo</option>
+                </select>
+                <input type="number" class="cantidad" value="1" min="1">
+            </div>
+            <button class="btn-agregar">Agregar al Pedido</button>
+        </div>
+
+        <div class="producto-card">
+            <img src="Imagenes Productos Panificados/flautaSalvado.jpg" alt="Flauta de Salvado">
+            <h3>Flauta de Salvado</h3>
+            <div class="controles">
+                 <select class="tipo-unidad">
+                    <option value="Unidad">Unidad</option>
+                    <option value="Docena">Kilo</option>
+                </select>
+                <input type="number" class="cantidad" value="1" min="1">
+            </div>
+            <button class="btn-agregar">Agregar al Pedido</button>
+        </div>
+
+        <div class="producto-card">
+            <img src="Imagenes Productos Panificados/miñoncito.jpg" alt="Mignoncito">
+            <h3>Mignoncito</h3>
+            <div class="controles">
+                 <select class="tipo-unidad">
+                    <option value="Unidad">Unidad</option>
+                    <option value="Docena">Kilo</option>
+                </select>
+                <input type="number" class="cantidad" value="1" min="1">
+            </div>
+            <button class="btn-agregar">Agregar al Pedido</button>
+        </div>
+
+        <div class="producto-card">
+            <img src="Imagenes Productos Panificados/panPanini.webp" alt="Pan Panini">
+            <h3>Pan Panini</h3>
+            <div class="controles">
+                 <select class="tipo-unidad">
+                    <option value="Unidad">Unidad</option>
+                    <option value="Docena">Docena</option>
+                </select>
+                <input type="number" class="cantidad" value="1" min="1">
+            </div>
+            <button class="btn-agregar">Agregar al Pedido</button>
+        </div>
+
+        <div class="producto-card">
+            <img src="Imagenes Productos Panificados/panPetit.png" alt="Pan Petit">
+            <h3>Pan Petit</h3>
+            <div class="controles">
+                 <select class="tipo-unidad">
+                    <option value="Unidad">Unidad</option>
+                    <option value="Docena">Kilo</option>
+                </select>
+                <input type="number" class="cantidad" value="1" min="1">
+            </div>
+            <button class="btn-agregar">Agregar al Pedido</button>
+        </div>
+
+        <div class="producto-card">
+            <img src="Imagenes Productos Panificados/panPetitSalvado.jpg" alt="Pan Petit de Salvado">
+            <h3>Pan Petit de Salvado</h3>
+            <div class="controles">
+                 <select class="tipo-unidad">
+                    <option value="Unidad">Unidad</option>
+                    <option value="Docena">Kilo</option>
+                </select>
+                <input type="number" class="cantidad" value="1" min="1">
+            </div>
+            <button class="btn-agregar">Agregar al Pedido</button>
+        </div>
+
+        </div>
+
+    <button class="flecha next" onclick="moverCarrusel(this, 1)">&#10095;</button>
+</div>
+
+<!-- Segunda Categoria -->
+
+      <h4 class="titulo-categoria">Panes Especiales</h4>
+      <div class="contenedor-carrusel">
+      <button class="flecha prev" onclick="moverCarrusel(this, -1)">&#10094;</button>
+
+      <div class="carrusel-track">
+          
+          <div class="producto-card">
+              <img src="Imagenes Panes Especiales/chipa.png" alt="Chipa de Queso">
+              <h3>Chipa de Queso</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
           </div>
-        `;
-        contenedor.innerHTML += html;
-      }
+
+          <div class="producto-card">
+              <img src="Imagenes Panes Especiales/sconesQueso.png" alt="Scones de Queso">
+              <h3>Scones de Queso</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Panes Especiales/bagelSalvado.jpg" alt="Bagel de Salvado">
+              <h3>Bagel de Salvado</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Kilo</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Panes Especiales/criollitoGrasa.png" alt="Criollito de Grasa">
+              <h3>Criollito de Grasa</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Kilo</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Panes Especiales/cremona.webp" alt="Cremona">
+              <h3>Cremona</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Kilo</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Panes Especiales/panDeCampo.png" alt="Pan de Campo">
+              <h3>Pan de Campo</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Kilo</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Panes Especiales/bolloCampesino.jpg" alt="Bollo Campesino">
+              <h3>Bollo Campesino</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Kilo</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Panes Especiales/figazaArabe.webp" alt="Figaza Arabe">
+              <h3>Figaza Arabe</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Kilo</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Panes Especiales/PandeLomo.png" alt="Pan Lomitero">
+              <h3>Pan Lomitero</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Kilo</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+          </div>
+
+          <button class="flecha next" onclick="moverCarrusel(this, 1)">&#10095;</button>
+          </div>
+
+
+      <!-- Tercer Categoria -->
+
+      <h4 class="titulo-categoria">Prepizzas</h4>
+      <div class="contenedor-carrusel">
+      <button class="flecha prev" onclick="moverCarrusel(this, -1)">&#10094;</button>
+
+      <div class="carrusel-track">
+
+        <div class="producto-card">
+              <img src="Imagenes Prepizza/prepizza.jpg" alt="Prepizza">
+              <h3>Prepizza de Tomate</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Prepizza/prepizzaCebolla.webp" alt="Prepizza de Cebolla">
+              <h3>Prepizza de Cebolla</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Prepizza/pizzeta.jpg" alt="Pizzeta">
+              <h3>Pizzeta de Tomate</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Prepizza/pizzetaCebolla.png" alt="Pizzeta de Cebolla">
+              <h3>Pizzeta de Cebolla</h3>
+              
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+  </div>
+  <button class="flecha next" onclick="moverCarrusel(this, 1)">&#10095;</button>
+  </div>
+
+  <!-- Cuarta Categoria -->
+
+      <h4 class="titulo-categoria">Facturas</h4>
+      <div class="contenedor-carrusel">
+      <button class="flecha prev" onclick="moverCarrusel(this, -1)">&#10094;</button>
+
+      <div class="carrusel-track">
+
+        <div class="producto-card">
+              <img src="Imagenes Facturas/planchaHojaldre.jpg" alt="Plancha de Hojaldre">
+              <h3>Plancha de Hojaldre</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Facturas/panalMembrillo.webp" alt="Panal De Membrillo">
+              <h3>Panal De Membrillo</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Facturas/panalBatata.png" alt="Panal De Batata">
+              <h3>Panal De Batata</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Facturas/panalPastelera.webp" alt="Panal De Pastelera">
+              <h3>Panal De Pastelera</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Facturas/rollManzana.avif" alt="Roll de Manzana">
+              <h3>Roll de Manzana</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Facturas/palitosGrasa.png" alt="Palitos de Grasa">
+              <h3>Palitos de Grasa</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+        </div>
+        <button class="flecha next" onclick="moverCarrusel(this, 1)">&#10095;</button>
+        </div>
+
+
+        <!-- Quinta Categoria -->
+
+      <h4 class="titulo-categoria">Medialunas</h4>
+      <div class="contenedor-carrusel">
+      <button class="flecha prev" onclick="moverCarrusel(this, -1)">&#10094;</button>
+
+      <div class="carrusel-track">
+        
+        <div class="producto-card">
+              <img src="Imagenes Medialunas/croissant.jpg" alt="Croissant">
+              <h3>Croissant</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Medialunas/medialunaChica.jpg" alt="Medialuna de Manteca">
+              <h3>Medialuna de Manteca</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Medialunas/medialunasManteca.png" alt="Medialuna de Manteca Chica">
+              <h3>Medialuna de Manteca Chica</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Medialunas/medialunaMDQ.png" alt="Medialuna Mar del Plata">
+              <h3>Medialuna Mar del Plata</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Medialunas/medialunaMultigrano.jpg" alt="Medialuna Multigrano">
+              <h3>Medialuna Multigrano</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Medialunas/medialunaSalada.webp" alt="Medialuna Salada">
+              <h3>Medialuna Salada</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+          <div class="producto-card">
+              <img src="Imagenes Medialunas/medialunaGrasa.png" alt="Medialuna de Grasa">
+              <h3>Medialuna de Grasa</h3>
+
+              <div class="controles">
+                  <select class="tipo-unidad">
+                      <option value="Docena">Docena</option>
+                      <option value="Unidad">Unidad</option>
+                  </select>
+                  <input type="number" class="cantidad" value="1" min="1">
+              </div>
+
+              <button class="btn-agregar">Agregar al Pedido</button>
+          </div>
+
+        </div>
+        <button class="flecha next" onclick="moverCarrusel(this, 1)">&#10095;</button>
+        </div>
+
+  <button id="boton-carrito" onclick="enviarPedido()">
+    <span>🛒 Ver mi Pedido (<span id="contador-carrito">0</span>)</span>
+  </button>
+
+<script>
+
+    function moverCarrusel(boton, direccion) {
+        const contenedor = boton.parentElement;
+        const track = contenedor.querySelector('.carrusel-track');
+        
+        const anchoVisible = track.clientWidth;      // Lo que se ve en pantalla
+        const anchoTotal = track.scrollWidth;        // El largo total de toda la tira de productos
+        const posicionActual = track.scrollLeft;     // Qué tan scrolleado estoy (0 es el inicio)
+        const margenError = 10;                      // Un margen chiquito por si el cálculo no es exacto
+
+        // 2. Lógica para la DERECHA
+        if (direccion === 1) {
+            if (posicionActual + anchoVisible >= anchoTotal - margenError) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: anchoVisible, behavior: 'smooth' });
+            }
+        } 
+        
+        // 3. Lógica para la IZQUIERDA
+        else {
+            if (posicionActual <= margenError) {
+                track.scrollTo({ left: anchoTotal, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: -anchoVisible, behavior: 'smooth' });
+            }
+        }
     }
-  </script>
+
+    let carrito = [];
+
+    const botones = document.querySelectorAll('.btn-agregar');
+
+    botones.forEach(boton => {
+        boton.addEventListener('click', (e) => {
+            const card = e.target.closest('.producto-card');
+
+            const nombre = card.querySelector('h3').innerText;
+            const unidad = card.querySelector('.tipo-unidad').value; // Docena/Unidad/Kilo
+            const cantidad = card.querySelector('.cantidad').value;
+            
+            const item = `• ${nombre}: ${cantidad} ${unidad}`;
+            
+            carrito.push(item);
+            
+            actualizarBotonFlotante();
+            // Efecto Visual
+            const textoOriginal = e.target.innerText;
+            e.target.innerText = "¡Agregado! 👍";
+            e.target.style.backgroundColor = "#2fab6f";
+            setTimeout(() => {
+                e.target.innerText = textoOriginal;
+                e.target.style.backgroundColor = "#d35400";
+            }, 1000);
+        });
+    });
+
+    function actualizarBotonFlotante() {
+        const boton = document.getElementById('boton-carrito');
+        const contador = document.getElementById('contador-carrito');
+        
+        if (carrito.length > 0) {
+            boton.style.display = 'flex'; // Mostramos el botón
+            contador.innerText = carrito.length;
+        }
+    }
+
+    function enviarPedido() {
+        // Tu número de teléfono
+        const telefono = "5491140421634";
+        
+        // Armamos el mensaje final uniendo todo con saltos de línea
+        let mensaje = "Hola panLife! Quiero realizar el siguiente pedido:%0A%0A";
+        mensaje += carrito.join("%0A"); // %0A es un enter en WhatsApp
+        mensaje += "%0A%0A¿Me podrán pasar el presupuesto?";
+
+        // Abrimos WhatsApp
+        window.open(`https://wa.me/${telefono}?text=${mensaje}`, '_blank');
+    }
+</script>
+    <br><br><br>
+    <section id="listado-texto">
+    
+    <h1 style="text-align: center; margin-top: 60px; margin-bottom: 30px; color: #d35400;">
+        Catalogo Completo de Productos
+    </h1>
+
+    <div class="tarjeta-lista">
+        <h4 class="titulo-lista">Panificados</h4>
+        <ul class="grilla-lista">
+            <li>Baguette</li>
+            <li>Baguette de Salvado</li>
+            <li>Mini Baguette</li>
+            <li>Flauta</li>
+            <li>Flauta de Salvado</li>
+            <li>Mignoncito</li>
+            <li>Pan Panini</li>
+            </ul>
+    </div>
+
+    <div class="tarjeta-lista">
+        <h4 class="titulo-lista">Panes Especiales</h4>
+        <ul class="grilla-lista">
+            <li>Chipa de Queso</li>
+            <li>Scones de Queso</li>
+            <li>Bagel de Salvado</li>
+            <li>Criollito de Grasa</li>
+            <li>Cremona</li>
+            <li>Pan de Campo</li>
+            <li>Bollo Campesino</li>
+            <li>Figaza Arabe</li>
+            <li>Pan Lomitero</li>
+        </ul>
+    </div>
+
+    <div class="tarjeta-lista">
+        <h4 class="titulo-lista">Prepizzas</h4>
+        <ul class="grilla-lista">
+            <li>Prepizza de Tomate</li>
+            <li>Prepizza de Cebolla</li>
+            <li>Pizzeta de Tomate</li>
+            <li>Pizzeta de Cebolla</li>
+        </ul>
+    </div>
+
+    <div class="tarjeta-lista">
+        <h4 class="titulo-lista">Facturas</h4>
+        <ul class="grilla-lista">
+            <li>Plancha de Hojaldre</li>
+            <li>Panal de Membrillo</li>
+            <li>Panal de Batata</li>
+            <li>Panal de Pastelera</li>
+            <li>Roll de Manzana</li>
+            <li>Palitos de Grasa</li>
+        </ul>
+    </div>
+
+    <div class="tarjeta-lista">
+        <h4 class="titulo-lista">Medialunas</h4>
+        <ul class="grilla-lista">
+            <li>Croissant</li>
+            <li>Medialuna de Manteca</li>
+            <li>Medialuna de Manteca Chica</li>
+            <li>Medialuna Mar del Plata</li>
+            <li>Medialuna Multigrano</li>
+            <li>Medialuna Salada</li>
+            <li>Medialuna de Grasa</li>
+        </ul>
+    </div>
+
+</section>
+
+
+
+
 </body>
 </html>
 

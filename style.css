@@ -318,3 +318,257 @@ p {
     text-align: center;
     border: 1px solid #fae5d3; /* Borde muy finito color pan */
 }
+
+
+/* --- ESTILOS DEL CATÁLOGO MODERNO --- */
+
+/* Contenedor principal centrado */
+#catalogo {
+    max-width: 1000px;
+    margin: 40px auto; /* Centrado y separado del techo */
+    padding: 0 20px;
+}
+
+/* Títulos de Categoría */
+.titulo-categoria {
+    color: #2fab6f; /* Verde PanLife */
+    font-size: 1.8rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* LA GRILLA MÁGICA (Hace que se acomoden solos) */
+.grilla-productos {
+    display: grid;
+    /* Esto crea columnas automáticas de mínimo 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; /* Espacio entre tarjetas */
+}
+
+/* Tarjeta del Producto (Card) */
+.producto-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Sombra suave */
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px); /* Efecto de levitar al pasar el mouse */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* Recorta la foto para que no se deforme */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: white;
+}
+
+.producto-card h3 {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Controles (Select e Input) */
+.controles {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+/* Hacemos los inputs lindos */
+.tipo-unidad, .cantidad {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #f9f9f9;
+}
+
+.tipo-unidad:focus, .cantidad:focus {
+    border-color: #2fab6f; /* Borde verde al tocar */
+}
+
+/* Botón de Agregar */
+.btn-agregar {
+    background-color: #d35400; /* Naranja PanLife */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-agregar:hover {
+    background-color: #e67e22;
+}
+
+/* --- BOTÓN FLOTANTE DEL CARRITO (Se pega abajo) --- */
+#boton-carrito {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366; /* Verde WhatsApp */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 1000;
+    display: none; /* Oculto hasta que agreguen algo */
+    align-items: center;
+    gap: 10px;
+    border: none;
+}
+
+/* --- ESTILOS CARRUSEL (SLIDER) --- */
+
+/* El contenedor que tiene las flechas y los productos */
+.contenedor-carrusel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* El riel donde van las tarjetas */
+.carrusel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    
+    scroll-snap-type: x mandatory; /* Obliga a frenar en un producto */
+    gap: 0; /* Sacamos el espacio para que el cálculo sea perfecto */
+    padding: 0; /* Sacamos el padding interno */
+    
+    
+    scrollbar-width: none;
+}
+
+.carrusel-track::-webkit-scrollbar {
+    display: none; /* Chrome y otros */
+}
+
+.producto-card {
+    min-width: 100%; 
+    flex: 0 0 auto;  
+    margin: 0;       
+    scroll-snap-align: center; /* Se alinea siempre al centro */
+    box-sizing: border-box; 
+}
+
+.flecha {
+    background-color: #2fab6f; 
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    z-index: 10;
+    transition: transform 0.2s;
+    
+    /* Para que no se achiquen */
+    flex-shrink: 0; 
+    margin: 0 10px;
+}
+
+.flecha:hover {
+    transform: scale(1.1);
+    background-color: #269660;
+}
+
+.flecha:active {
+    transform: scale(0.9);
+}
+
+/* --- ESTILOS DEL LISTADO DE TEXTO --- */
+
+#listado-texto {
+    max-width: 800px;
+    margin: 0 auto 80px auto; 
+    padding: 0 20px;
+}
+
+
+.tarjeta-lista {
+    background: white;
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px; 
+    border: 1px solid #f0f0f0;
+}
+
+.titulo-lista {
+    color: #2fab6f; 
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 10px;
+}
+
+
+.grilla-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    /* MAGIA: Columnas automáticas (mínimo 200px de ancho cada una) */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px; 
+}
+
+.grilla-lista li {
+    font-size: 1.1rem;
+    color: #555; 
+    display: flex;
+    align-items: center;
+}
+
+.grilla-lista li::before {
+    content: "•"; 
+    color: #2fab6f; 
+    font-weight: bold;
+    font-size: 1.5rem; 
+    margin-right: 10px; 
+    line-height: 1;
+}
+
+/* Efecto al pasar el mouse por un nombre */
+.grilla-lista li:hover {
+    color: #d35400; /* Se pone naranja */
+    transform: translateX(5px); /* Se mueve un poquito a la derecha */
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+

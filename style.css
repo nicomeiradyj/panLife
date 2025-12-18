@@ -481,7 +481,11 @@ p {
 }
 
 .flecha {
-    background-color: #2fab6f; 
+    position: absolute; 
+    top: 50%;           
+    transform: translateY(-50%);
+    
+    background-color: rgba(47, 171, 111, 0.9); 
     color: white;
     border: none;
     width: 40px;
@@ -492,22 +496,25 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     z-index: 10;
-    transition: transform 0.2s;
-    
-    /* Para que no se achiquen */
-    flex-shrink: 0; 
-    margin: 0 10px;
+}
+
+.prev {
+    left: 10px; /* Pegada a la izquierda */
+}
+
+.next {
+    right: 10px; /* Pegada a la derecha */
 }
 
 .flecha:hover {
-    transform: scale(1.1);
     background-color: #269660;
+    transform: translateY(-50%) scale(1.1); /* Mantiene el centrado y agranda */
 }
 
 .flecha:active {
-    transform: scale(0.9);
+    transform: translateY(-50%) scale(0.9);
 }
 
 /* --- ESTILOS DEL LISTADO DE TEXTO --- */

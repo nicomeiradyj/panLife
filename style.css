@@ -439,7 +439,6 @@ p {
 
 /* --- ESTILOS CARRUSEL (SLIDER) --- */
 
-/* El contenedor que tiene las flechas y los productos */
 .contenedor-carrusel {
     position: relative;
     display: flex;
@@ -449,6 +448,9 @@ p {
     max-width: 800px; 
     margin-left: auto;
     margin-right: auto;
+    
+    width: 100%; /* Obliga a usar todo el espacio disponible */
+    padding: 0;  /* Nos aseguramos de que nada empuje hacia adentro */
 }
 
 /* El riel donde van las tarjetas */

@@ -6,8 +6,6 @@
 //       <script src="chatbot.js"></script>
 // ============================================================
 
-const GEMINI_API_KEY = 'aca va la api key';
-
 // ---------- PROMPT DEL ASISTENTE ----------
 const SYSTEM_PROMPT = `Sos el asistente virtual de panLife, una panadería familiar de Florencio Varela que distribuye a todo el país. Tu nombre es "Pan 🥖" y hablás en español argentino informal (tuteo, "vos", "che"). Sos cálido, breve y útil.
 
@@ -390,7 +388,7 @@ async function enviarMensaje() {
 
 // ---------- LLAMADA A GEMINI FLASH ----------
 async function llamarGemini() {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+  const url = 'https://api-panlife.nicomeira05.workers.dev';
 
   const body = {
     system_instruction: {

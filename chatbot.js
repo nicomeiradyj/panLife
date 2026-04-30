@@ -388,7 +388,7 @@ async function enviarMensaje() {
 
 // ---------- LLAMADA A GEMINI FLASH ----------
 async function llamarGemini() {
-  const url = 'https://api-panlife.nicomeira05.workers.dev';
+  const url = 'https://puente-panlife.nicomeira05.workers.dev';
 
   const body = {
     system_instruction: {

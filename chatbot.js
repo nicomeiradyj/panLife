@@ -390,7 +390,7 @@ async function llamarGemini() {
   // IMPORTANTE: usá tu dominio propio en vez de workers.dev para evitar adblockers
   // Configuralo en Cloudflare > Workers > tu worker > Settings > Triggers > Custom Domain
   // Ejemplo: const url = 'https://asistente.panlife.com.ar';
-  const url = 'https://puente-panlife.nicomeira05.workers.dev';
+  const url = 'https://asistente.panlife.com.ar';
  
   const body = {
     system_instruction: {

@@ -295,7 +295,7 @@ const chatHTML = `
 `;
  
 const chatContainer = document.createElement('div');
-chatContainer.style.cssText = 'position:fixed;z-index:9999;bottom:0;left:0;pointer-events:none;';
+chatContainer.style.cssText = 'position:fixed;z-index:9999;bottom:0;left:0;';
 chatContainer.innerHTML = chatHTML;
 chatContainer.querySelectorAll ? null : null;
 document.body.appendChild(chatContainer);

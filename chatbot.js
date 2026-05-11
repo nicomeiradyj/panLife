@@ -266,19 +266,19 @@ document.head.appendChild(styleEl);
  
 // ---------- CREAR EL HTML DEL CHAT ----------
 const chatHTML = `
-  <button id="chat-boton" onclick="toggleChat()" title="Hablar con el asistente" style="position:relative;">
+  <button id="chat-boton" onclick="toggleChat()" title="Hablar con el asistente" style="pointer-events: auto; position: fixed; bottom: 24px; left: 24px; z-index: 9999;">
     <span id="chat-emoji">💬</span>
     <span class="chat-badge" id="chat-badge"></span>
   </button>
- 
-  <div id="chat-panel">
+
+  <div id="chat-panel" style="pointer-events: auto; position: fixed; bottom: 96px; left: 24px; z-index: 9999; display: none; flex-direction: column; width: 340px; max-height: 500px; background: white; border-radius: 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.18);">
     <div id="chat-header">
       <div class="avatar">🥖</div>
       <div class="info">
         <strong>Pan — Asistente panLife</strong>
         <span>En línea ahora</span>
       </div>
-      <button id="chat-cerrar" onclick="toggleChat()">✕</button>
+      <button id="chat-cerrar" onclick="toggleChat()" style="background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer;">✕</button>
     </div>
     <div id="chat-mensajes"></div>
     <div id="chat-input-area">
@@ -293,8 +293,9 @@ const chatHTML = `
     </div>
   </div>
 `;
- 
+
 const chatContainer = document.createElement('div');
+// El contenedor padre ocupa toda la pantalla pero es invisible a los clics
 chatContainer.style.cssText = 'position:fixed; z-index:9999; bottom:0; left:0; width:100%; height:100%; pointer-events:none;';
 chatContainer.innerHTML = chatHTML;
 document.body.appendChild(chatContainer);

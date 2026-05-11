@@ -266,8 +266,8 @@ document.head.appendChild(styleEl);
 
 // ---------- CREAR EL HTML DEL CHAT ----------
 const chatHTML = `
-  <button id="chat-boton" onclick="toggleChat()" title="Hablar con el asistente">
-    💬
+  <button id="chat-boton" onclick="toggleChat()" ...>
+    <span id="chat-emoji">💬</span>
     <span class="chat-badge" id="chat-badge"></span>
   </button>
 
@@ -312,7 +312,8 @@ function toggleChat() {
   const badge = document.getElementById('chat-badge');
 
   panel.classList.toggle('visible', chatAbierto);
-  boton.textContent = chatAbierto ? '✕' : '💬';
+  document.getElementById('chat-emoji').textContent = chatAbierto ? '✕' : '💬';
+  badge.style.display = 'none';
   if (chatAbierto) boton.appendChild(badge);
   badge.style.display = 'none';
 

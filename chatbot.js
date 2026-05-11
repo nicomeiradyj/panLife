@@ -271,7 +271,7 @@ const chatHTML = `
     <span class="chat-badge" id="chat-badge"></span>
   </button>
 
-  <div id="chat-panel" style="pointer-events: auto; position: fixed; bottom: 96px; left: 24px; z-index: 9999; display: none; flex-direction: column; width: 340px; max-height: 500px; background: white; border-radius: 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.18);">
+  <div id="chat-panel" style="pointer-events: auto; position: fixed; bottom: 96px; left: 24px; z-index: 9999; flex-direction: column; width: 340px; max-height: 500px; background: white; border-radius: 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.18);">
     <div id="chat-header">
       <div class="avatar">🥖</div>
       <div class="info">

@@ -295,9 +295,8 @@ const chatHTML = `
 `;
  
 const chatContainer = document.createElement('div');
-chatContainer.style.cssText = 'position:fixed;z-index:9999;bottom:0;left:0;';
+chatContainer.style.cssText = 'position:fixed; z-index:9999; bottom:0; left:0; width:100%; height:100%; pointer-events:none;';
 chatContainer.innerHTML = chatHTML;
-chatContainer.querySelectorAll ? null : null;
 document.body.appendChild(chatContainer);
  
 // ---------- MENSAJE DE BIENVENIDA ----------
@@ -394,7 +393,7 @@ async function llamarGemini() {
   // IMPORTANTE: usá tu dominio propio en vez de workers.dev para evitar adblockers
   // Configuralo en Cloudflare > Workers > tu worker > Settings > Triggers > Custom Domain
   // Ejemplo: const url = 'https://asistente.panlife.com.ar';
-  const url = 'https://asistente.panlife.com.ar';
+  const url = 'https://puente-panlife.nicomeira05.workers.dev';
  
   const body = {
     system_instruction: {

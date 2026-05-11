@@ -580,4 +580,9 @@ p {
     cursor: default;
 }
 
+#chat-boton, #chat-panel {
+    position: fixed !important;
+    z-index: 999999 !important;
+}
+
 

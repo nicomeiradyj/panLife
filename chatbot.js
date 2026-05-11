@@ -294,7 +294,11 @@ const chatHTML = `
   </div>
 `;
  
-document.body.insertAdjacentHTML('beforeend', chatHTML);
+const chatContainer = document.createElement('div');
+chatContainer.style.cssText = 'position:fixed;z-index:9999;bottom:0;left:0;pointer-events:none;';
+chatContainer.innerHTML = chatHTML;
+chatContainer.querySelectorAll ? null : null;
+document.body.appendChild(chatContainer);
  
 // ---------- MENSAJE DE BIENVENIDA ----------
 function mostrarBienvenida() {

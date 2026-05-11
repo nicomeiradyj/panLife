@@ -1,12 +1,3 @@
-// ============================================================
-//  panLife - Asistente Virtual con IA (Google Gemini Flash)
-//  ¿Cómo activarlo?
-//    1. Reemplazá TU_API_KEY_AQUI con tu clave de Google AI Studio
-//    2. Agregá esta línea antes del </body> en index.html y productos.html:
-//       <script src="chatbot.js"></script>
-// ============================================================
- 
-// ---------- PROMPT DEL ASISTENTE ----------
 const SYSTEM_PROMPT = `Sos el asistente virtual de panLife, una panadería familiar de Florencio Varela que distribuye a todo el país. Tu nombre es "Pan 🥖" y hablás en español argentino informal (tuteo, "vos", "che"). Sos cálido, breve y útil.
  
 PRODUCTOS DISPONIBLES:
@@ -34,12 +25,11 @@ REGLAS PARA VOS:
 - Si te preguntan algo que no sabés, decí que lo consulten por WhatsApp
 - No uses markdown en exceso. Solo emojis ocasionales para dar calidez.`;
  
-// ---------- HISTORIAL DE MENSAJES ----------
 let historialChat = [];
  
-// ---------- ESTILOS ----------
 const estilos = `
   #chat-boton {
+    pointer-events: auto;
     position: fixed;
     bottom: 24px;
     left: 24px;
@@ -75,6 +65,7 @@ const estilos = `
   }
  
   #chat-panel {
+    pointer-events: auto;
     position: fixed;
     bottom: 96px;
     left: 24px;
@@ -259,26 +250,24 @@ const estilos = `
   }
 `;
  
-// ---------- INYECTAR ESTILOS ----------
 const styleEl = document.createElement('style');
 styleEl.textContent = estilos;
 document.head.appendChild(styleEl);
  
-// ---------- CREAR EL HTML DEL CHAT ----------
 const chatHTML = `
-  <button id="chat-boton" onclick="toggleChat()" title="Hablar con el asistente" style="pointer-events: auto; position: fixed; bottom: 24px; left: 24px; z-index: 9999;">
+  <button id="chat-boton" onclick="toggleChat()" title="Hablar con el asistente">
     <span id="chat-emoji">💬</span>
     <span class="chat-badge" id="chat-badge"></span>
   </button>
-
-  <div id="chat-panel" style="pointer-events: auto; position: fixed; bottom: 96px; left: 24px; z-index: 9999; flex-direction: column; width: 340px; max-height: 500px; background: white; border-radius: 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.18);">
+ 
+  <div id="chat-panel">
     <div id="chat-header">
       <div class="avatar">🥖</div>
       <div class="info">
         <strong>Pan — Asistente panLife</strong>
         <span>En línea ahora</span>
       </div>
-      <button id="chat-cerrar" onclick="toggleChat()" style="background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer;">✕</button>
+      <button id="chat-cerrar" onclick="toggleChat()">✕</button>
     </div>
     <div id="chat-mensajes"></div>
     <div id="chat-input-area">
@@ -293,26 +282,22 @@ const chatHTML = `
     </div>
   </div>
 `;
-
+ 
 const chatContainer = document.createElement('div');
-// El contenedor padre ocupa toda la pantalla pero es invisible a los clics
 chatContainer.style.cssText = 'position:fixed; z-index:9999; bottom:0; left:0; width:100%; height:100%; pointer-events:none;';
 chatContainer.innerHTML = chatHTML;
 document.body.appendChild(chatContainer);
  
-// ---------- MENSAJE DE BIENVENIDA ----------
 function mostrarBienvenida() {
   agregarMensaje('bot', '¡Hola! 👋 Soy Pan, el asistente de panLife. Puedo ayudarte a conocer nuestros productos, responder tus dudas o guiarte para hacer tu pedido. ¿En qué te ayudo?');
 }
  
-// ---------- TOGGLE CHAT ----------
 let chatAbierto = false;
 let bienvenidaMostrada = false;
  
 function toggleChat() {
   chatAbierto = !chatAbierto;
   const panel = document.getElementById('chat-panel');
-  const boton = document.getElementById('chat-boton');
   const badge = document.getElementById('chat-badge');
  
   panel.classList.toggle('visible', chatAbierto);
@@ -329,11 +314,10 @@ function toggleChat() {
   }
 }
  
-// ---------- AGREGAR MENSAJE AL DOM ----------
 function agregarMensaje(rol, texto) {
   const cont = document.getElementById('chat-mensajes');
   const div = document.createElement('div');
-  div.className = `msg ${rol}`;
+  div.className = "msg " + rol;
   div.textContent = texto;
   cont.appendChild(div);
   cont.scrollTop = cont.scrollHeight;
@@ -355,7 +339,6 @@ function ocultarTyping() {
   if (el) el.remove();
 }
  
-// ---------- ENVIAR MENSAJE ----------
 async function enviarMensaje() {
   const input = document.getElementById('chat-input');
   const texto = input.value.trim();
@@ -375,7 +358,6 @@ async function enviarMensaje() {
     agregarMensaje('bot', respuesta);
     historialChat.push({ role: 'model', parts: [{ text: respuesta }] });
  
-    // Mostrar badge si el chat está cerrado
     if (!chatAbierto) {
       document.getElementById('chat-badge').style.display = 'block';
     }
@@ -389,11 +371,7 @@ async function enviarMensaje() {
   document.getElementById('chat-input').focus();
 }
  
-// ---------- LLAMADA A GEMINI FLASH ----------
 async function llamarGemini() {
-  // IMPORTANTE: usá tu dominio propio en vez de workers.dev para evitar adblockers
-  // Configuralo en Cloudflare > Workers > tu worker > Settings > Triggers > Custom Domain
-  // Ejemplo: const url = 'https://asistente.panlife.com.ar';
   const url = 'https://puente-panlife.nicomeira05.workers.dev';
  
   const body = {
@@ -415,14 +393,13 @@ async function llamarGemini() {
  
   if (!res.ok) {
     const errData = await res.json().catch(() => ({}));
-    throw new Error(errData?.error?.message || `HTTP ${res.status}`);
+    throw new Error(errData?.error?.message || "HTTP " + res.status);
   }
  
   const data = await res.json();
   return data.candidates?.[0]?.content?.parts?.[0]?.text || 'No pude generar una respuesta. Intentá de nuevo.';
 }
  
-// ---------- MOSTRAR BADGE DESPUÉS DE 8 SEGUNDOS (INVITACIÓN) ----------
 setTimeout(() => {
   if (!chatAbierto && !bienvenidaMostrada) {
     document.getElementById('chat-badge').style.display = 'block';

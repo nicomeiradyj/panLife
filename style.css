@@ -638,7 +638,7 @@ p {
    ============================================================ */
 #boton-carrito {
   position: fixed;
-  bottom: 24px;
+  bottom: 90px;
   right: 24px;
   background: var(--verde);
   color: white;
@@ -673,6 +673,33 @@ p {
   justify-content: center;
   font-size: 0.85rem;
   font-weight: 800;
+}
+
+/* ---- BOTON FLOTANTE WHATSAPP ---- */
+.boton-flotante-wa {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(37,211,102,0.45);
+  z-index: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.boton-flotante-wa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 22px rgba(37,211,102,0.6);
+}
+
+.boton-flotante-wa img {
+  height: 28px;
+  width: 28px;
 }
 
 /* ============================================================

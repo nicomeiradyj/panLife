@@ -1,24 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <style>
-        h1 {
-            text-align: center;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="description" content="panLife - Panificados frescos y congelados. Baguettes, medialunas, facturas, prepizzas y mas. Envios a todo el pais desde Florencio Varela.">
+    <meta property="og:title" content="panLife - Soluciones en Panificados">
+    <meta property="og:description" content="Panificados frescos y congelados. Distribuimos a todo el pais desde Florencio Varela.">
+    <meta property="og:image" content="https://panlife.com.ar/panlife-Soluciones.jpg">
+    <meta property="og:url" content="https://panlife.com.ar">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <title>panLife - Soluciones en Panificados!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Raleway&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/jpeg" href="panlife-Soluciones.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "panLife",
+      "description": "Panificados frescos y congelados. Soluciones en panificados para familias, comedores y escuelas.",
+      "url": "https://panlife.com.ar",
+      "telephone": "+5491140421634",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rio Turbio 3769",
+        "addressLocality": "Villa Vatteone, Florencio Varela",
+        "addressRegion": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "sameAs": [
+        "https://www.instagram.com/panlife.arg"
+      ],
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "06:00", "closes": "13:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "16:00", "closes": "20:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "06:00", "closes": "13:00" }
+      ]
+    }
+    </script>
 </head>
-<body style="background-color:whitesmoke;">
+<body>
   <!-- Menú Superior -->
 <div class="menu">
   <!-- Logo a la izquierda -->
   <div class="logo">
     <a href="index.html">
-      <img src="panlife-grande.jpg" alt="Logo panLife" style="height: 50px; width: auto;">
+      <img src="panlife-grande.jpg" alt="Logo panLife" class="logo-img">
     </a>   
   </div>
   <!-- Título centrado -->
@@ -29,13 +56,12 @@
   <div class="botones">
     <a class="boton-menu" href="productos.html">Pedir Ahora!</a>
     <a href="https://wa.me/5491140421634?text=Hola!%20Me%20interesa%20conocer%20mas%20sobre%20los%20productos%20de%20panLife." target="_blank" class="boton-contacto">
-        <img src="WhatsApp.svg-removebg-preview.png" alt="WhatsApp" style="height: 20px; vertical-align: middle; margin-right: 8px;">
+        <img src="WhatsApp.svg-removebg-preview.png" alt="WhatsApp" class="menu-wa-icon">
         Contacto
     </a>
   </div>
 </div>
-<div class="espacio-menu"></div>
-    <!-- Imagen Horizontal -->
+<!-- Imagen Horizontal -->
     <img src="imagensuperior.jpg" class="imagen-superior-horizontal" alt="Imagen Pan Decorativa">
     <img src="panlife-Soluciones-removebg-preview.png" class="imagen-soluciones-en-panificados-central" alt="panLife Imagen">
 
@@ -48,17 +74,17 @@
     </ul>
     </div>
 
-    <h4 style="text-align: center; font-size: 27px;">Panificados, productos frescos, congelados y mas!</h4>
+    <h4 class="seccion-subtitulo">Panificados, productos frescos, congelados y mas!</h4>
     <p>Con base en Florencio Varela, pero distribuyendo a TODO EL PAIS, panLife es una empresa familiar, que a base de esfuerzo y cariño, logra brindarle sus productos a comedores, familias, escuelas, y varios lugares mas. </p>
     <br> <br>
-    <section id="quienes-somos" style="padding: 40px 20px; text-align: center;">
+    <section id="quienes-somos" class="quienes-somos">
     <div class="container">
-        <h2 style="color: #d35400; font-family: sans-serif; margin-bottom: 20px;">Quienes Somos</h2>
-        <p style="font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto; color: #555;">
+        <h2 class="quienes-somos-titulo">Quienes Somos</h2>
+        <p class="quienes-somos-texto">
             Detrás de <strong>panLife</strong> está la familia <strong>Helman</strong>. Lo que comenzó como un sueño en nuestra cocina en Florencio Varela, amasando con paciencia y dedicación, hoy se ha transformado en un proyecto que alimenta a miles de personas en toda la provincia de Buenos Aires.
         </p>
         <br>
-        <p style="font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto; color: #555;">
+        <p class="quienes-somos-texto">
             Creemos que nuestros productos no son solo alimento, es lo que une a la mesa familiar, a los chicos en la escuela y a las comunidades en los comedores. Por eso, aunque hemos crecido, mantenemos intacto ese <strong>cariño y esfuerzo</strong> de nuestros inicios, asegurando calidad en cada producto que sale de nuestro horno hacia tu mesa.
         </p>
     </div>
@@ -68,17 +94,17 @@
 
     <section id="contacto-especial">
     <div class="tarjeta-destacada">
-        <h3 style="color: #d35400; margin-bottom: 15px; font-size: 1.5rem;">
+        <h3>
             ¿Tenés un comedor, escuela o necesitás un pedido especial?
         </h3>
-        <p style="margin-bottom: 25px; font-size: 1.1rem; color: #666;">
+        <p>
             Sabemos que cada cliente es diferente. Contanos qué necesitás y armamos una propuesta a tu medida.
         </p>
         
         <a href="https://wa.me/5491140421634?text=Hola!%20Vengo%20de%20la%20web..." 
            target="_blank" 
-           style="background-color: #25D366; color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem; display: inline-flex; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-           <img src="WhatsApp.svg-removebg-preview.png" alt="WhatsApp" style="height: 24px; margin-right: 10px;">
+           class="btn-whatsapp">
+           <img src="WhatsApp.svg-removebg-preview.png" alt="WhatsApp">
            Hablar con un asesor
         </a>
     </div>
@@ -102,15 +128,39 @@
   </div>
   </div>
   <br><br>
-  <h3 style="text-align: center; font-size: 30px; font-family: 'Raleway', sans-serif;">Seguinos en nuestras redes!</h3>
+  <h3 class="seccion-titulo">Seguinos en nuestras redes!</h3>
   <a href="https://www.instagram.com/panlife.arg?igsh=MnZobGd1b2l6Zm01" target = "_blank"> 
     <img src="instagram.png" alt="Seguinos en Instagram" class="logo-instagram">
   </a>
   <br><br><br>
-  <h3 style="text-align: center; font-size: 30px;">Dónde estamos ubicados</h3>
-  <div style="display: flex; justify-content: center; margin: 40px 0;">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3275.455125794954!2d-58.25428248802579!3d-34.81964777276443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a329a74a2fff1b%3A0x532f24154592a3a1!2sBBK%2C%20R%C3%ADo%20Turbio%203769%2C%20B1853%20Villa%20Vatteone%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1749041881004!5m2!1ses!2sar" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <h3 class="seccion-titulo">Dónde estamos ubicados</h3>
+  <div class="mapa-contenedor">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3275.455125794954!2d-58.25428248802579!3d-34.81964777276443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a329a74a2fff1b%3A0x532f24154592a3a1!2sBBK%2C%20R%C3%ADo%20Turbio%203769%2C%20B1853%20Villa%20Vatteone%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1749041881004!5m2!1ses!2sar" width="100%" height="550" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
+  <footer class="footer">
+    <div class="footer-contenido">
+      <div class="footer-columna">
+        <h4>Contacto</h4>
+        <p>
+          <a href="https://wa.me/5491140421634" target="_blank" class="footer-wa">
+            <img src="WhatsApp.svg-removebg-preview.png" alt="WA"> +54 9 11 4042-1634
+          </a>
+        </p>
+        <p>
+          <a href="https://www.instagram.com/panlife.arg" target="_blank">@panlife.arg</a>
+        </p>
+      </div>
+      <div class="footer-columna">
+        <h4>Direccion</h4>
+        <p>Rio Turbio 3769<br>Villa Vatteone, Florencio Varela<br>Buenos Aires</p>
+      </div>
+      <div class="footer-columna">
+        <h4>Horarios</h4>
+        <p>Lunes a Viernes: 6:00 - 13:00 / 16:00 - 20:00<br>Sabados: 6:00 - 13:00<br>Domingos: Cerrado</p>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2025 panLife - <a href="privacidad.html" style="color:inherit;">Politica de Privacidad</a></p>
+  </footer>
   <script src="chatbot.js"></script>
 </body>
 </html>

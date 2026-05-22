@@ -16,3 +16,13 @@ document.querySelectorAll('.producto-card').forEach((card, i) => {
   card.style.setProperty('--delay', `${i * 60}ms`);
   observer.observe(card);
 });
+
+// Parallax suave en la imagen hero
+const heroImg = document.querySelector('.imagen-superior-horizontal');
+if (heroImg) {
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const rate = scrolled * 0.35;
+    heroImg.style.transform = `translateY(${rate}px)`;
+  });
+}

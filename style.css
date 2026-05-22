@@ -137,6 +137,7 @@ p {
   height: 220px;
   object-fit: cover;
   display: block;
+  will-change: transform;
   -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
@@ -145,7 +146,17 @@ p {
   width: 26%;
   height: 168px;
   display: block;
-  margin: 0 auto;
+  margin: -40px auto 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: logoFadeIn 0.8s ease 0.4s forwards;
+}
+
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ============================================================

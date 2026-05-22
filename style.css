@@ -726,6 +726,25 @@ p {
 }
 
 /* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.animado {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.animado.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger para tarjetas de producto */
+.producto-card.animado {
+  transition-delay: var(--delay, 0ms);
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .footer {

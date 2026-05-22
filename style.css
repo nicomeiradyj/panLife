@@ -137,6 +137,7 @@ p {
   height: 220px;
   object-fit: cover;
   display: block;
+  will-change: transform;
   -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
@@ -145,7 +146,17 @@ p {
   width: 26%;
   height: 168px;
   display: block;
-  margin: 0 auto;
+  margin: -40px auto 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: logoFadeIn 0.8s ease 0.4s forwards;
+}
+
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ============================================================
@@ -190,6 +201,80 @@ p {
 }
 
 /* ============================================================
+   INDEX PAGE - Como pedir
+   ============================================================ */
+.como-pedir {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.como-pedir h2 {
+  color: var(--naranja);
+  font-size: 1.7rem;
+  margin-bottom: 30px;
+  font-family: 'DM Serif Display', serif;
+}
+
+.pasos {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.paso {
+  flex: 1;
+  min-width: 220px;
+  max-width: 280px;
+  background: var(--blanco);
+  border-radius: 16px;
+  padding: 28px 20px;
+  box-shadow: var(--sombra);
+  border: 1px solid var(--gris-claro);
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.paso:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.paso .paso-icono {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.paso .paso-numero {
+  display: inline-block;
+  background: var(--verde);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 28px;
+  margin-bottom: 10px;
+}
+
+.paso h4 {
+  color: #333;
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.paso p {
+  color: var(--gris-texto);
+  font-size: 0.9rem;
+  width: 100%;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ============================================================
    INDEX PAGE - Quienes Somos
    ============================================================ */
 .quienes-somos {
@@ -199,7 +284,7 @@ p {
 
 .quienes-somos-titulo {
   color: var(--naranja);
-  font-family: sans-serif;
+  font-family: 'DM Serif Display', serif;
   margin-bottom: 20px;
 }
 
@@ -217,12 +302,13 @@ p {
 .seccion-titulo {
   text-align: center;
   font-size: 30px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'DM Serif Display', serif;
 }
 
 .seccion-subtitulo {
   text-align: center;
   font-size: 27px;
+  font-family: 'DM Serif Display', serif;
 }
 
 /* ============================================================
@@ -247,6 +333,7 @@ p {
 
 .izquierda h2 {
   margin-left: 290px;
+  font-family: 'DM Serif Display', serif;
 }
 
 .derecha {
@@ -255,6 +342,7 @@ p {
 
 .derecha h2 {
   margin-right: 350px;
+  font-family: 'DM Serif Display', serif;
 }
 
 /* ============================================================
@@ -275,6 +363,7 @@ p {
   color: var(--naranja);
   margin-bottom: 15px;
   font-size: 1.5rem;
+  font-family: 'DM Serif Display', serif;
 }
 
 .tarjeta-destacada p {
@@ -403,10 +492,11 @@ p {
 .titulo-categoria {
   color: var(--naranja);
   font-size: 1.55rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 18px;
   padding-bottom: 10px;
   border-bottom: 3px solid #fae5d3;
+  font-family: 'DM Serif Display', serif;
 }
 
 .grilla-productos {
@@ -424,15 +514,17 @@ p {
   padding: 18px;
   box-shadow: var(--sombra);
   text-align: center;
-  border: 1px solid var(--gris-claro);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .producto-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.11);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.14);
+  border-color: var(--naranja-claro);
 }
 
 .producto-card img {
@@ -442,6 +534,11 @@ p {
   border-radius: 10px;
   margin-bottom: 12px;
   background: #fafafa;
+  transition: transform 0.4s ease;
+}
+
+.producto-card:hover img {
+  transform: scale(1.06);
 }
 
 .producto-card h3 {
@@ -534,7 +631,7 @@ p {
    ============================================================ */
 #boton-carrito {
   position: fixed;
-  bottom: 24px;
+  bottom: 90px;
   right: 24px;
   background: var(--verde);
   color: white;
@@ -569,6 +666,33 @@ p {
   justify-content: center;
   font-size: 0.85rem;
   font-weight: 800;
+}
+
+/* ---- BOTON FLOTANTE WHATSAPP ---- */
+.boton-flotante-wa {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(37,211,102,0.45);
+  z-index: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.boton-flotante-wa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 22px rgba(37,211,102,0.6);
+}
+
+.boton-flotante-wa img {
+  height: 28px;
+  width: 28px;
 }
 
 /* ============================================================
@@ -726,6 +850,25 @@ p {
 }
 
 /* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.animado {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.animado.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger para tarjetas de producto */
+.producto-card.animado {
+  transition-delay: var(--delay, 0ms);
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .footer {
@@ -755,6 +898,8 @@ p {
   color: var(--naranja-claro);
   border-bottom: 2px solid rgba(255,255,255,0.15);
   padding-bottom: 8px;
+  font-family: 'DM Serif Display', serif;
+  font-weight: 700;
 }
 
 .footer-columna p {

@@ -201,46 +201,6 @@ p {
 }
 
 /* ============================================================
-   INDEX PAGE - Quienes Somos
-   ============================================================ */
-.quienes-somos {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.quienes-somos-titulo {
-  color: var(--naranja);
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.quienes-somos-texto {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-  color: var(--gris-texto);
-}
-
-/* ============================================================
-   INDEX PAGE - Titulos de seccion
-   ============================================================ */
-.seccion-titulo {
-  text-align: center;
-  font-size: 30px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-}
-
-.seccion-subtitulo {
-  text-align: center;
-  font-size: 27px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-}
-
-/* ============================================================
    INDEX PAGE - Como pedir
    ============================================================ */
 .como-pedir {
@@ -254,8 +214,7 @@ p {
   color: var(--naranja);
   font-size: 1.7rem;
   margin-bottom: 30px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
+  font-family: 'DM Serif Display', serif;
 }
 
 .pasos {
@@ -316,6 +275,43 @@ p {
 }
 
 /* ============================================================
+   INDEX PAGE - Quienes Somos
+   ============================================================ */
+.quienes-somos {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.quienes-somos-titulo {
+  color: var(--naranja);
+  font-family: 'DM Serif Display', serif;
+  margin-bottom: 20px;
+}
+
+.quienes-somos-texto {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--gris-texto);
+}
+
+/* ============================================================
+   INDEX PAGE - Titulos de seccion
+   ============================================================ */
+.seccion-titulo {
+  text-align: center;
+  font-size: 30px;
+  font-family: 'DM Serif Display', serif;
+}
+
+.seccion-subtitulo {
+  text-align: center;
+  font-size: 27px;
+  font-family: 'DM Serif Display', serif;
+}
+
+/* ============================================================
    INDEX PAGE - Seccion doble (Productos / Contacto)
    ============================================================ */
 .seccion-doble {
@@ -337,8 +333,7 @@ p {
 
 .izquierda h2 {
   margin-left: 290px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
+  font-family: 'DM Serif Display', serif;
 }
 
 .derecha {
@@ -347,8 +342,7 @@ p {
 
 .derecha h2 {
   margin-right: 350px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
+  font-family: 'DM Serif Display', serif;
 }
 
 /* ============================================================
@@ -369,8 +363,7 @@ p {
   color: var(--naranja);
   margin-bottom: 15px;
   font-size: 1.5rem;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
+  font-family: 'DM Serif Display', serif;
 }
 
 .tarjeta-destacada p {
@@ -503,7 +496,7 @@ p {
   margin-bottom: 18px;
   padding-bottom: 10px;
   border-bottom: 3px solid #fae5d3;
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', serif;
 }
 
 .grilla-productos {
@@ -905,7 +898,7 @@ p {
   color: var(--naranja-claro);
   border-bottom: 2px solid rgba(255,255,255,0.15);
   padding-bottom: 8px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', serif;
   font-weight: 700;
 }
 

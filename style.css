@@ -210,7 +210,8 @@ p {
 
 .quienes-somos-titulo {
   color: var(--naranja);
-  font-family: sans-serif;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -228,12 +229,15 @@ p {
 .seccion-titulo {
   text-align: center;
   font-size: 30px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 .seccion-subtitulo {
   text-align: center;
   font-size: 27px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
 }
 
 /* ============================================================
@@ -250,6 +254,8 @@ p {
   color: var(--naranja);
   font-size: 1.7rem;
   margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 .pasos {
@@ -331,6 +337,8 @@ p {
 
 .izquierda h2 {
   margin-left: 290px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 .derecha {
@@ -339,6 +347,8 @@ p {
 
 .derecha h2 {
   margin-right: 350px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 /* ============================================================
@@ -359,6 +369,8 @@ p {
   color: var(--naranja);
   margin-bottom: 15px;
   font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 .tarjeta-destacada p {
@@ -487,10 +499,11 @@ p {
 .titulo-categoria {
   color: var(--naranja);
   font-size: 1.55rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 18px;
   padding-bottom: 10px;
   border-bottom: 3px solid #fae5d3;
+  font-family: 'Playfair Display', serif;
 }
 
 .grilla-productos {
@@ -865,6 +878,8 @@ p {
   color: var(--naranja-claro);
   border-bottom: 2px solid rgba(255,255,255,0.15);
   padding-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 .footer-columna p {

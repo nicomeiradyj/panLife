@@ -998,7 +998,8 @@ p {
 
   /* --- Hero: flujo normal, sin absolutos --- */
   .hero {
-    position: static;
+    position: relative;
+    margin-top: 80px;
     padding-top: 0;
   }
 
@@ -1013,18 +1014,18 @@ p {
   }
 
   .hero-texto {
-    position: static;
-    transform: none;
-    margin: -32px 14px 24px;
+    position: relative;
+    height: auto;
     max-width: none;
-    padding: 28px 22px;
+    margin: 0 14px 20px;
+    padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     background: rgba(255,255,255,0.95);
   }
 
   .hero-texto h1 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .hero-subtitulo {

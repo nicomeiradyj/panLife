@@ -950,54 +950,102 @@ p {
    ============================================================ */
 @media (max-width: 768px) {
 
-  /* --- Menu mobile --- */
+  /* --- Body spacing --- */
   body {
-    padding-top: 180px;
+    padding-top: 52px;
+    padding-bottom: 100px;
   }
 
+  /* --- Header compacto: 1 sola fila --- */
   .menu {
-    flex-direction: column;
-    padding: 10px 0;
-  }
-
-  .logo,
-  .titulo,
-  .botones {
-    width: 100%;
-    margin: 0;
+    flex-direction: row;
+    padding: 6px 12px;
+    height: 52px;
+    align-items: center;
   }
 
   .logo {
+    width: auto;
+    margin: 0;
     display: flex;
-    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 34px;
   }
 
   .titulo {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 12px;
-    width: 100%;
+    display: none;
   }
 
   .botones {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    width: auto;
+    flex-direction: row;
+    gap: 8px;
   }
 
   .boton-menu,
   .boton-contacto {
-    font-size: 18px;
-    padding: 5px 0;
+    font-size: 14px;
+    padding: 4px 6px;
   }
 
-  .titulo p {
-    margin-left: 0;
-    font-size: 1.1em;
-    text-align: center;
+  .menu-wa-icon {
+    height: 16px;
+    margin-right: 4px;
+  }
+
+  /* --- Hero: flujo normal, sin absolutos --- */
+  .hero {
+    position: static;
+    padding-top: 0;
+  }
+
+  .hero-overlay {
+    display: none;
+  }
+
+  .hero-fondo {
+    height: 200px;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .hero-texto {
+    position: static;
+    transform: none;
+    margin: -32px 14px 24px;
+    max-width: none;
+    padding: 28px 22px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.95);
+  }
+
+  .hero-texto h1 {
+    font-size: 1.25rem;
+  }
+
+  .hero-subtitulo {
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+
+  .hero-cta {
+    font-size: 0.95rem;
+    padding: 10px 26px;
+  }
+
+  /* --- Carrusel: borde a borde --- */
+  .slider-frame {
     width: 100%;
-    margin-right: 0;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .slider-frame img {
+    height: 220px;
   }
 
   /* --- General mobile --- */
@@ -1034,19 +1082,9 @@ p {
     height: auto;
   }
 
-  .slider-frame {
-    width: 100%;
-    border-radius: 0;
-    margin: 20px 0;
-  }
-
-  .slider-frame img {
-    height: 240px;
-  }
-
   /* --- Catalog mobile --- */
   #barra-catalogo {
-    top: 180px;
+    top: 52px;
   }
 
   .grilla-productos {

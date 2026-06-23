@@ -313,12 +313,24 @@ function toggleChat() {
     setTimeout(() => document.getElementById('chat-input').focus(), 100);
   }
 }
- 
+
+function formatearTexto(texto) {
+  const seguro = String(texto).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  let html = seguro.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/^\* /gm, '• ');
+  html = html.replace(/\n/g, '<br>');
+  return html;
+}
+
 function agregarMensaje(rol, texto) {
   const cont = document.getElementById('chat-mensajes');
   const div = document.createElement('div');
   div.className = "msg " + rol;
-  div.textContent = texto;
+  if (rol === 'bot') {
+    div.innerHTML = formatearTexto(texto);
+  } else {
+    div.textContent = texto;
+  }
   cont.appendChild(div);
   cont.scrollTop = cont.scrollHeight;
   return div;

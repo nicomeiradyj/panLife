@@ -167,12 +167,13 @@ p {
   max-width: 800px;
   margin: 30px auto;
   overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .slider-frame ul {
   display: flex;
+  margin: 0;
   padding: 0;
   width: 400%;
   animation: slide 20s infinite alternate ease-in-out;
@@ -185,8 +186,9 @@ p {
 
 .slider-frame img {
   width: 100%;
-  height: 300px;
+  height: 390px;
   object-fit: cover;
+  display: block;
 }
 
 @keyframes slide {
@@ -1033,7 +1035,7 @@ p {
   }
 
   .slider-frame img {
-    height: 200px;
+    height: 240px;
   }
 
   /* --- Catalog mobile --- */
@@ -1071,4 +1073,85 @@ p {
   .grilla-productos {
     grid-template-columns: 1fr;
   }
+}
+
+/* === HERO === */
+.hero {
+  position: relative;
+  width: 100%;
+  padding-top: 18px;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.10) 70%, transparent 100%);
+}
+
+.hero-fondo {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.hero-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 48px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 90%;
+}
+
+.hero-texto h1 {
+  color: var(--verde);
+  font-size: 1.8rem;
+  margin: 0 0 10px;
+  max-width: 600px;
+}
+
+.hero-subtitulo {
+  color: #555;
+  font-size: 1.1rem;
+  margin: 0 0 22px;
+}
+
+.hero-cta {
+  background: #d35400;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.hero-cta:hover {
+  background: #e67e22;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(211, 84, 0, 0.35);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .hero-fondo { height: 220px; }
+  .hero-texto { padding: 28px 24px; }
+  .hero-texto h1 { font-size: 1.3rem; }
+  .hero-subtitulo { font-size: 0.95rem; }
+  .hero-cta { font-size: 0.95rem; padding: 10px 24px; }
 }

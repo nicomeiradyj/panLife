@@ -1191,11 +1191,3 @@ p {
   box-shadow: 0 6px 20px rgba(211, 84, 0, 0.35);
 }
 
-/* mobile */
-@media (max-width: 768px) {
-  .hero-fondo { height: 220px; }
-  .hero-texto { padding: 28px 24px; }
-  .hero-texto h1 { font-size: 1.3rem; }
-  .hero-subtitulo { font-size: 0.95rem; }
-  .hero-cta { font-size: 0.95rem; padding: 10px 24px; }
-}

@@ -1034,6 +1034,12 @@ p {
     height: auto;
   }
 
+  .slider-frame {
+    width: 100%;
+    border-radius: 0;
+    margin: 20px 0;
+  }
+
   .slider-frame img {
     height: 240px;
   }

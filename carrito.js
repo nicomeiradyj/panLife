@@ -1,5 +1,5 @@
-let carrito = [];
-
+let carrito = JSON.parse(localStorage.getItem('carrito_panlife') || '[]');
+actualizarBadge();
 // --- Agregar al carrito ---
 document.querySelectorAll('.btn-agregar').forEach(btn => {
   btn.addEventListener('click', e => {
@@ -11,8 +11,10 @@ document.querySelectorAll('.btn-agregar').forEach(btn => {
     const existente = carrito.find(i => i.nombre === nombre && i.unidad === unidad);
     if (existente) {
       existente.cantidad += cant;
+      guardarCarrito();
     } else {
       carrito.push({ nombre, unidad, cantidad: cant });
+      guardarCarrito();
     }
 
     actualizarBadge();
@@ -30,6 +32,10 @@ function actualizarBadge() {
   const total = carrito.reduce((s, i) => s + i.cantidad, 0);
   document.getElementById('contador-carrito').textContent = total;
   document.getElementById('boton-carrito').style.display = total > 0 ? 'flex' : 'none';
+}
+
+function guardarCarrito() {
+  localStorage.setItem('carrito_panlife', JSON.stringify(carrito));
 }
 
 // --- Modal ---
@@ -82,6 +88,7 @@ function renderizarCarrito() {
 
 function eliminarItem(idx) {
   carrito.splice(idx, 1);
+  guardarCarrito();
   actualizarBadge();
   renderizarCarrito();
 }
@@ -89,6 +96,7 @@ function eliminarItem(idx) {
 document.getElementById('btn-vaciar').addEventListener('click', () => {
   if (confirm('¿Seguro que querés vaciar el pedido?')) {
     carrito = [];
+    guardarCarrito();
     actualizarBadge();
     renderizarCarrito();
   }
@@ -145,4 +153,15 @@ function filtrarProductos() {
   });
 
   document.getElementById('sin-resultados').style.display = hayAlgo ? 'none' : 'block';
+
+  // --- Boton volver arriba ---
+  const btnVolver = document.getElementById('btn-volver-arriba');
+  if (btnVolver) {
+    window.addEventListener('scroll', () => {
+      btnVolver.classList.toggle('visible', window.scrollY > 500);
+    });
+    btnVolver.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 }

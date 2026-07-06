@@ -132,33 +132,6 @@ p {
 /* ============================================================
    INDEX PAGE - Imagenes hero
    ============================================================ */
-.imagen-superior-horizontal {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  will-change: transform;
-  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-}
-
-.imagen-soluciones-en-panificados-central {
-  width: 26%;
-  height: 168px;
-  display: block;
-  margin: -40px auto 0;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: logoFadeIn 0.8s ease 0.4s forwards;
-}
-
-@keyframes logoFadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* ============================================================
    INDEX PAGE - Carrusel
    ============================================================ */
@@ -668,6 +641,34 @@ p {
   justify-content: center;
   font-size: 0.85rem;
   font-weight: 800;
+}
+
+#btn-volver-arriba {
+  position: fixed;
+  bottom: 150px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: var(--verde);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 499;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(47, 171, 111, 0.35);
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+#btn-volver-arriba.visible {
+  display: flex;
+}
+
+#btn-volver-arriba:hover {
+  transform: translateY(-2px);
 }
 
 /* ---- BOTON FLOTANTE WHATSAPP ---- */

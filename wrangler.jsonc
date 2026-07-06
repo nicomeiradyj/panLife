@@ -1,7 +1,6 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "panlife-chatbot",
-  "compatibility_date": "2026-05-11",
+  "compatibility_date": "2025-05-11",
   "observability": {
     "enabled": true
   },

@@ -17,7 +17,7 @@ document.querySelectorAll('.producto-card').forEach((card, i) => {
 });
 
 // Parallax suave en la imagen hero
-const heroImg = document.querySelector('.imagen-superior-horizontal');
+const heroImg = document.querySelector('.hero-fondo');
 if (heroImg) {
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;

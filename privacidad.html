@@ -39,6 +39,14 @@
             font-family: 'DM Serif Display', serif;
             font-weight: 700;
         }
+        .contenido-legal h1.titulo-legal {
+            color: var(--naranja);
+            margin-top: 30px;
+            margin-bottom: .83em;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
@@ -53,7 +61,7 @@
         </div>
         <div class="botones">
             <a class="boton-menu" href="productos.html">Pedir Ahora!</a>
-            <a href="https://wa.me/5491140421634" target="_blank" class="boton-contacto">
+            <a href="https://wa.me/5491140421634" target="_blank" rel="noopener noreferrer" class="boton-contacto">
                 <img src="img/social/WhatsApp.svg-removebg-preview.png" alt="WhatsApp" class="menu-wa-icon">
                 Contacto
             </a>
@@ -61,25 +69,29 @@
     </div>
 
     <div class="contenido-legal" style="margin-top:40px;">
-        <h2 style="text-align:center;color:var(--naranja);">Politica de Privacidad</h2>
+        <h1 class="titulo-legal" style="text-align:center;">Politica de Privacidad</h1>
         <p><strong>Ultima actualizacion:</strong> Mayo 2025</p>
 
         <h2>1. Responsable</h2>
         <p>El responsable del tratamiento de datos es <strong>panLife</strong>, emprendimiento familiar con domicilio en Rio Turbio 3769, Villa Vatteone, Florencio Varela, Buenos Aires. Para cualquier consulta podes comunicarte por WhatsApp al <a href="https://wa.me/5491140421634">+54 9 11 4042-1634</a>.</p>
 
         <h2>2. Datos que recopilamos</h2>
-        <p>Esta pagina web <strong>no recolecta datos personales de forma automatica</strong>. No usamos cookies de seguimiento ni almacenamos informacion en formularios. Las unicas vias por las que podemos recibir tus datos son:</p>
-        <p>- <strong>WhatsApp:</strong> cuando inicias una conversacion voluntariamente a traves de nuestros enlaces o el boton del carrito de pedidos.</p>
-        <p>- <strong>Chatbot:</strong> el asistente virtual procesa tus consultas en tiempo real pero no almacena historial de conversaciones en nuestros servidores.</p>
+        <p>Esta pagina web no solicita datos personales mediante formularios ni guarda un perfil personal de sus visitantes. Para conservar tu pedido aunque cierres o recargues la pagina, el carrito guarda localmente en tu navegador los nombres de los productos, las unidades y las cantidades seleccionadas mediante <code>localStorage</code>. Esa informacion no se envia a panLife automaticamente y podes eliminarla desde el boton "Vaciar pedido" o desde la configuracion de tu navegador.</p>
+        <p>Las vias por las que podemos recibir o procesar datos son:</p>
+        <p>- <strong>WhatsApp:</strong> cuando inicias una conversacion voluntariamente a traves de nuestros enlaces o envias el pedido del carrito. El tratamiento de esos mensajes tambien queda sujeto a las politicas de WhatsApp y Meta.</p>
+        <p>- <strong>Chatbot:</strong> el historial de la conversacion se mantiene en la memoria de la pagina mientras la tenes abierta para conservar el contexto. Tus consultas se envian al servicio externo que ejecuta nuestro Worker para generar respuestas. El sitio no guarda ese historial en <code>localStorage</code>; los registros tecnicos y la retencion del servicio externo dependen de su configuracion.</p>
+        <p>- <strong>Servicios externos:</strong> el mapa se carga desde Google Maps, las tipografias desde Google Fonts y el sitio publicado utiliza Cloudflare Insights para metricas tecnicas de rendimiento y uso.</p>
 
         <h2>3. Finalidad</h2>
-        <p>Los datos que nos proporciones por WhatsApp se utilizan unicamente para:</p>
+        <p>Los datos que nos proporciones por WhatsApp, la informacion necesaria para conservar tu pedido localmente y las consultas del chatbot se utilizan unicamente para:</p>
         <p>- Responder tus consultas y cotizaciones.<br>
         - Procesar y coordinar tus pedidos.<br>
-        - Comunicarnos cuestiones relacionadas con tu pedido.</p>
+         - Comunicarnos cuestiones relacionadas con tu pedido.<br>
+         - Mantener el pedido en tu navegador hasta que decidas enviarlo o eliminarlo.<br>
+         - Responder consultas mediante el chatbot.</p>
 
-        <h2>4. No compartimos tus datos</h2>
-        <p><strong>panLife no vende, alquila ni comparte</strong> tus datos personales con terceros. Toda la informacion queda dentro del ambito de la empresa familiar.</p>
+        <h2>4. Proveedores externos y comparticion de datos</h2>
+        <p><strong>panLife no vende ni alquila</strong> tus datos personales. Para brindar las funciones del sitio utilizamos proveedores externos, como WhatsApp/Meta, Google, Cloudflare y el servicio que procesa el chatbot. Cada proveedor puede tratar datos tecnicos o comunicaciones segun sus propias politicas de privacidad.</p>
 
         <h2>5. Derechos del titular (Ley 25.326)</h2>
         <p>De acuerdo con la Ley de Proteccion de Datos Personales de Argentina, tenes derecho a:</p>
@@ -104,20 +116,20 @@
     <footer class="footer">
         <div class="footer-contenido">
             <div class="footer-columna">
-                <h4>Contacto</h4>
-                <p><a href="https://wa.me/5491140421634" target="_blank" class="footer-wa"><img src="img/social/WhatsApp.svg-removebg-preview.png" alt="WA" loading="lazy"> +54 9 11 4042-1634</a></p>
-                <p><a href="https://www.instagram.com/panlife.arg" target="_blank">@panlife.arg</a></p>
+                <h3>Contacto</h3>
+                <p><a href="https://wa.me/5491140421634" target="_blank" rel="noopener noreferrer" class="footer-wa"><img src="img/social/WhatsApp.svg-removebg-preview.png" alt="WA" loading="lazy"> +54 9 11 4042-1634</a></p>
+                <p><a href="https://www.instagram.com/panlife.arg" target="_blank" rel="noopener noreferrer">@panlife.arg</a></p>
             </div>
             <div class="footer-columna">
-                <h4>Direccion</h4>
+                <h3>Direccion</h3>
                 <p>Rio Turbio 3769<br>Villa Vatteone, Florencio Varela<br>Buenos Aires</p>
             </div>
             <div class="footer-columna">
-                <h4>Horarios</h4>
+                <h3>Horarios</h3>
                 <p>Lunes a Viernes: 6:00 - 13:00 / 16:00 - 20:00<br>Sabados: 6:00 - 13:00<br>Domingos: Cerrado</p>
             </div>
         </div>
-        <p class="footer-copy">&copy; 2025 panLife - Politica de Privacidad</p>
+        <p class="footer-copy">&copy; 2026 panLife - Politica de Privacidad</p>
     </footer>
     <script src="chatbot.js"></script>
 </body>

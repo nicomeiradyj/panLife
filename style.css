@@ -34,6 +34,18 @@ p {
   text-align: center;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ============================================================
    MENU / NAVBAR
    ============================================================ */
@@ -235,7 +247,7 @@ p {
   margin-bottom: 10px;
 }
 
-.paso h4 {
+.paso h3 {
   color: #333;
   margin: 0 0 8px;
   font-size: 1.05rem;
@@ -895,9 +907,10 @@ p {
   min-width: 200px;
 }
 
+.footer-columna h3,
 .footer-columna h4 {
   font-size: 1.1rem;
-  margin-bottom: 14px;
+  margin: 1.33em 0 14px;
   color: var(--naranja-claro);
   border-bottom: 2px solid rgba(255,255,255,0.15);
   padding-bottom: 8px;
@@ -1206,5 +1219,44 @@ p {
   background: #e67e22;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(211, 84, 0, 0.35);
+}
+
+/* Reaplica las reglas móviles después de las reglas generales del hero. */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 0;
+  }
+
+  .hero-fondo {
+    height: 200px;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .hero-texto {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    padding: 16px 20px;
+    margin: 0 0 20px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .hero-texto h1 {
+    font-size: 1rem;
+  }
+
+  .hero-subtitulo {
+    font-size: 0.85rem;
+    margin: 0 0 14px;
+  }
+
+  .hero-cta {
+    font-size: 0.9rem;
+    padding: 8px 24px;
+  }
 }
 

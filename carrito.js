@@ -1,16 +1,63 @@
-let carrito = JSON.parse(localStorage.getItem('carrito_panlife') || '[]');
+const CLAVE_CARRITO = 'carrito_panlife';
+let carrito = cargarCarrito();
+
+document.querySelectorAll('.cantidad').forEach(input => {
+  input.min = '1';
+  input.step = '1';
+  input.required = true;
+  input.addEventListener('input', () => input.setCustomValidity(''));
+});
+
 actualizarBadge();
+
+function cargarCarrito() {
+  try {
+    const guardado = JSON.parse(localStorage.getItem(CLAVE_CARRITO) || '[]');
+    if (!Array.isArray(guardado)) return [];
+
+    return guardado.filter(item =>
+      item &&
+      typeof item.nombre === 'string' && item.nombre.trim() &&
+      typeof item.unidad === 'string' && item.unidad.trim() &&
+      Number.isSafeInteger(item.cantidad) && item.cantidad >= 1
+    );
+  } catch {
+    return [];
+  }
+}
+
 // --- Agregar al carrito ---
 document.querySelectorAll('.btn-agregar').forEach(btn => {
   btn.addEventListener('click', e => {
     const card   = e.target.closest('.producto-card');
     const nombre = card.querySelector('h3').innerText;
     const unidad = card.querySelector('.tipo-unidad').value;
-    const cant   = parseInt(card.querySelector('.cantidad').value) || 1;
+    const inputCantidad = card.querySelector('.cantidad');
+
+    if (!inputCantidad.checkValidity()) {
+      inputCantidad.reportValidity();
+      inputCantidad.focus();
+      return;
+    }
+
+    const cant = Number(inputCantidad.value);
+    if (!Number.isSafeInteger(cant) || cant < 1) {
+      inputCantidad.setCustomValidity('Ingresá una cantidad entera mayor o igual a 1.');
+      inputCantidad.reportValidity();
+      inputCantidad.focus();
+      return;
+    }
 
     const existente = carrito.find(i => i.nombre === nombre && i.unidad === unidad);
     if (existente) {
-      existente.cantidad += cant;
+      const nuevaCantidad = existente.cantidad + cant;
+      if (!Number.isSafeInteger(nuevaCantidad)) {
+        inputCantidad.setCustomValidity('La cantidad total del producto es demasiado grande.');
+        inputCantidad.reportValidity();
+        inputCantidad.focus();
+        return;
+      }
+      existente.cantidad = nuevaCantidad;
       guardarCarrito();
     } else {
       carrito.push({ nombre, unidad, cantidad: cant });
@@ -35,7 +82,7 @@ function actualizarBadge() {
 }
 
 function guardarCarrito() {
-  localStorage.setItem('carrito_panlife', JSON.stringify(carrito));
+  localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
 }
 
 // --- Modal ---
@@ -76,12 +123,22 @@ function renderizarCarrito() {
 
   carrito.forEach((item, idx) => {
     const li = document.createElement('li');
-    li.innerHTML = `
-      <span class="item-nombre">${item.nombre}</span>
-      <span class="item-detalle">${item.cantidad} ${item.unidad}</span>
-      <button class="btn-eliminar" title="Eliminar">🗑️</button>
-    `;
-    li.querySelector('.btn-eliminar').addEventListener('click', () => eliminarItem(idx));
+    const nombre = document.createElement('span');
+    nombre.className = 'item-nombre';
+    nombre.textContent = item.nombre;
+
+    const detalle = document.createElement('span');
+    detalle.className = 'item-detalle';
+    detalle.textContent = `${item.cantidad} ${item.unidad}`;
+
+    const btnEliminar = document.createElement('button');
+    btnEliminar.className = 'btn-eliminar';
+    btnEliminar.title = 'Eliminar';
+    btnEliminar.setAttribute('aria-label', `Eliminar ${item.nombre}`);
+    btnEliminar.textContent = '🗑️';
+    btnEliminar.addEventListener('click', () => eliminarItem(idx));
+
+    li.append(nombre, detalle, btnEliminar);
     lista.appendChild(li);
   });
 }
@@ -105,10 +162,15 @@ document.getElementById('btn-vaciar').addEventListener('click', () => {
 document.getElementById('btn-enviar-wa').addEventListener('click', () => {
   if (!carrito.length) return;
   const tel = WHATSAPP_NUMERO;
-  let msg = "Hola panLife! 👋 Quiero hacer el siguiente pedido:%0A%0A";
-  carrito.forEach(i => { msg += `• ${i.nombre}: ${i.cantidad} ${i.unidad}%0A`; });
-  msg += "%0A¿Me pueden pasar el presupuesto? ¡Gracias! 🙏";
-  window.open(`https://wa.me/${tel}?text=${msg}`, '_blank');
+  const lineas = [
+    'Hola panLife! 👋 Quiero hacer el siguiente pedido:',
+    '',
+    ...carrito.map(i => `• ${i.nombre}: ${i.cantidad} ${i.unidad}`),
+    '',
+    '¿Me pueden pasar el presupuesto? ¡Gracias! 🙏'
+  ];
+  const msg = encodeURIComponent(lineas.join('\n'));
+  window.open(`https://wa.me/${tel}?text=${msg}`, '_blank', 'noopener,noreferrer');
 });
 
 // --- Busqueda y filtros ---
@@ -153,15 +215,18 @@ function filtrarProductos() {
   });
 
   document.getElementById('sin-resultados').style.display = hayAlgo ? 'none' : 'block';
+}
 
-  // --- Boton volver arriba ---
-  const btnVolver = document.getElementById('btn-volver-arriba');
-  if (btnVolver) {
-    window.addEventListener('scroll', () => {
-      btnVolver.classList.toggle('visible', window.scrollY > 500);
-    });
-    btnVolver.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+// --- Boton volver arriba ---
+const btnVolver = document.getElementById('btn-volver-arriba');
+if (btnVolver) {
+  const actualizarBotonVolver = () => {
+    btnVolver.classList.toggle('visible', window.scrollY > 500);
+  };
+
+  window.addEventListener('scroll', actualizarBotonVolver, { passive: true });
+  btnVolver.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  actualizarBotonVolver();
 }

@@ -48,38 +48,59 @@
 
   <!-- Barra sticky: búsqueda + filtros -->
   <div id="barra-catalogo">
-    <input type="text" id="busqueda" placeholder="🔍  Buscar producto...">
+    <input type="text" id="busqueda" placeholder="Buscar producto...">
     <div class="filtros">
       <button class="filtro-btn activo" data-categoria="todos">Todos</button>
-      <button class="filtro-btn" data-categoria="panificados">🥖 Panificados</button>
-      <button class="filtro-btn" data-categoria="especiales">🫓 Panes Especiales</button>
-      <button class="filtro-btn" data-categoria="prepizzas">🍕 Prepizzas</button>
-      <button class="filtro-btn" data-categoria="facturas">🥐 Facturas</button>
-      <button class="filtro-btn" data-categoria="medialunas">🌙 Medialunas</button>
+      <button class="filtro-btn" data-categoria="panificados">Panificados</button>
+      <button class="filtro-btn" data-categoria="especiales">Panes Especiales</button>
+      <button class="filtro-btn" data-categoria="prepizzas">Prepizzas</button>
+      <button class="filtro-btn" data-categoria="facturas">Facturas</button>
+      <button class="filtro-btn" data-categoria="medialunas">Medialunas</button>
     </div>
   </div>
 
   <!-- Catálogo -->
   <div id="catalogo">
 
-    <!-- PANIFICADOS -->
-    <section class="seccion-categoria" data-categoria="panificados">
-      <h2 class="titulo-categoria">🥖 Panificados</h2>
+    <!-- NUEVO -->
+    <section class="seccion-categoria seccion-nuevo" data-categoria="nuevo">
+      <h2 class="titulo-categoria">Nuevo</h2>
       <div class="grilla-productos">
 
-        <div class="producto-card" data-categoria="panificados" data-nombre="baguette">
-          <img loading="lazy" src="img/panificados/baguette.png" alt="Baguette">
-          <h3>Baguette</h3>
+        <div class="producto-card" data-categoria="panificados" data-nombre="pan de hamburguesa">
+          <span class="badge-nuevo">Nuevo</span>
+          <img loading="lazy" src="img/panificados/pan-de-hamburguesa.jpg" alt="Pan de Hamburguesa">
+          <h3>Pan de Hamburguesa</h3>
+          <p class="producto-descripcion">Pan suave y esponjoso, dorado por fuera y tierno por dentro. Ideal para hamburguesas caseras.</p>
           <div class="controles">
-            <select class="tipo-unidad"><option>Unidad</option><option>Kilo</option></select>
+            <select class="tipo-unidad"><option>Docena</option><option>Unidad</option></select>
             <input type="number" class="cantidad" value="1" min="1">
           </div>
           <button class="btn-agregar">Agregar al Pedido</button>
         </div>
 
-        <div class="producto-card" data-categoria="panificados" data-nombre="baguette de salvado">
-          <img loading="lazy" src="img/panificados/baguetteSalvado.jpg" alt="Baguette de Salvado">
-          <h3>Baguette de Salvado</h3>
+      </div>
+    </section>
+
+    <!-- PANIFICADOS -->
+    <section class="seccion-categoria" data-categoria="panificados">
+      <h2 class="titulo-categoria">Panificados</h2>
+      <div class="grilla-productos">
+
+        <div class="producto-card" data-categoria="panificados" data-nombre="pan de hamburguesa">
+          <span class="badge-nuevo">Nuevo</span>
+          <img loading="lazy" src="img/panificados/pan-de-hamburguesa.jpg" alt="Pan de Hamburguesa">
+          <h3>Pan de Hamburguesa</h3>
+          <div class="controles">
+            <select class="tipo-unidad"><option>Docena</option><option>Unidad</option></select>
+            <input type="number" class="cantidad" value="1" min="1">
+          </div>
+          <button class="btn-agregar">Agregar al Pedido</button>
+        </div>
+
+        <div class="producto-card" data-categoria="panificados" data-nombre="baguette">
+          <img loading="lazy" src="img/panificados/baguette.png" alt="Baguette">
+          <h3>Baguette</h3>
           <div class="controles">
             <select class="tipo-unidad"><option>Unidad</option><option>Kilo</option></select>
             <input type="number" class="cantidad" value="1" min="1">
@@ -100,16 +121,6 @@
         <div class="producto-card" data-categoria="panificados" data-nombre="flauta">
           <img loading="lazy" src="img/panificados/panflauta.jpg" alt="Flauta">
           <h3>Flauta</h3>
-          <div class="controles">
-            <select class="tipo-unidad"><option>Unidad</option><option>Kilo</option></select>
-            <input type="number" class="cantidad" value="1" min="1">
-          </div>
-          <button class="btn-agregar">Agregar al Pedido</button>
-        </div>
-
-        <div class="producto-card" data-categoria="panificados" data-nombre="flauta de salvado">
-          <img loading="lazy" src="img/panificados/flautaSalvado.jpg" alt="Flauta de Salvado">
-          <h3>Flauta de Salvado</h3>
           <div class="controles">
             <select class="tipo-unidad"><option>Unidad</option><option>Kilo</option></select>
             <input type="number" class="cantidad" value="1" min="1">
@@ -147,29 +158,19 @@
           <button class="btn-agregar">Agregar al Pedido</button>
         </div>
 
-        <div class="producto-card" data-categoria="panificados" data-nombre="pan petit de salvado">
-          <img loading="lazy" src="img/panificados/panPetitSalvado.jpg" alt="Pan Petit de Salvado">
-          <h3>Pan Petit de Salvado</h3>
-          <div class="controles">
-            <select class="tipo-unidad"><option>Unidad</option><option>Kilo</option></select>
-            <input type="number" class="cantidad" value="1" min="1">
-          </div>
-          <button class="btn-agregar">Agregar al Pedido</button>
-        </div>
-
       </div>
     </section>
 
     <!-- PANES ESPECIALES -->
     <section class="seccion-categoria" data-categoria="especiales">
-      <h2 class="titulo-categoria">🫓 Panes Especiales</h2>
+      <h2 class="titulo-categoria">Panes Especiales</h2>
       <div class="grilla-productos">
 
-        <div class="producto-card" data-categoria="especiales" data-nombre="chipa de queso">
-          <img loading="lazy" src="img/especiales/chipa.png" alt="Chipa de Queso">
-          <h3>Chipa de Queso</h3>
+        <div class="producto-card" data-categoria="especiales" data-nombre="chipa">
+          <img loading="lazy" src="img/especiales/chipa.png" alt="Chipá">
+          <h3>Chipá</h3>
           <div class="controles">
-            <select class="tipo-unidad"><option>Docena</option><option>Unidad</option></select>
+            <select class="tipo-unidad"><option>Docena</option><option>Kilo</option></select>
             <input type="number" class="cantidad" value="1" min="1">
           </div>
           <button class="btn-agregar">Agregar al Pedido</button>
@@ -180,16 +181,6 @@
           <h3>Scones de Queso</h3>
           <div class="controles">
             <select class="tipo-unidad"><option>Docena</option><option>Unidad</option></select>
-            <input type="number" class="cantidad" value="1" min="1">
-          </div>
-          <button class="btn-agregar">Agregar al Pedido</button>
-        </div>
-
-        <div class="producto-card" data-categoria="especiales" data-nombre="bagel de salvado">
-          <img loading="lazy" src="img/especiales/bagelSalvado.jpg" alt="Bagel de Salvado">
-          <h3>Bagel de Salvado</h3>
-          <div class="controles">
-            <select class="tipo-unidad"><option>Kilo</option><option>Unidad</option></select>
             <input type="number" class="cantidad" value="1" min="1">
           </div>
           <button class="btn-agregar">Agregar al Pedido</button>
@@ -260,7 +251,7 @@
 
     <!-- PREPIZZAS -->
     <section class="seccion-categoria" data-categoria="prepizzas">
-      <h2 class="titulo-categoria">🍕 Prepizzas</h2>
+      <h2 class="titulo-categoria">Prepizzas</h2>
       <div class="grilla-productos">
 
         <div class="producto-card" data-categoria="prepizzas" data-nombre="prepizza de tomate">
@@ -308,52 +299,12 @@
 
     <!-- FACTURAS -->
     <section class="seccion-categoria" data-categoria="facturas">
-      <h2 class="titulo-categoria">🥐 Facturas</h2>
+      <h2 class="titulo-categoria">Facturas</h2>
       <div class="grilla-productos">
 
         <div class="producto-card" data-categoria="facturas" data-nombre="plancha de hojaldre">
           <img loading="lazy" src="img/facturas/planchaHojaldre.jpg" alt="Plancha de Hojaldre">
           <h3>Plancha de Hojaldre</h3>
-          <div class="controles">
-            <select class="tipo-unidad"><option>Docena</option><option>Unidad</option></select>
-            <input type="number" class="cantidad" value="1" min="1">
-          </div>
-          <button class="btn-agregar">Agregar al Pedido</button>
-        </div>
-
-        <div class="producto-card" data-categoria="facturas" data-nombre="panal de membrillo">
-          <img loading="lazy" src="img/facturas/panalMembrillo.webp" alt="Panal de Membrillo">
-          <h3>Panal de Membrillo</h3>
-          <div class="controles">
-            <select class="tipo-unidad"><option>Docena</option><option>Unidad</option></select>
-            <input type="number" class="cantidad" value="1" min="1">
-          </div>
-          <button class="btn-agregar">Agregar al Pedido</button>
-        </div>
-
-        <div class="producto-card" data-categoria="facturas" data-nombre="panal de batata">
-          <img loading="lazy" src="img/facturas/panalBatata.png" alt="Panal de Batata">
-          <h3>Panal de Batata</h3>
-          <div class="controles">
-            <select class="tipo-unidad"><option>Docena</option><option>Unidad</option></select>
-            <input type="number" class="cantidad" value="1" min="1">
-          </div>
-          <button class="btn-agregar">Agregar al Pedido</button>
-        </div>
-
-        <div class="producto-card" data-categoria="facturas" data-nombre="panal de pastelera">
-          <img loading="lazy" src="img/facturas/panalPastelera.webp" alt="Panal de Pastelera">
-          <h3>Panal de Pastelera</h3>
-          <div class="controles">
-            <select class="tipo-unidad"><option>Docena</option><option>Unidad</option></select>
-            <input type="number" class="cantidad" value="1" min="1">
-          </div>
-          <button class="btn-agregar">Agregar al Pedido</button>
-        </div>
-
-        <div class="producto-card" data-categoria="facturas" data-nombre="roll de manzana">
-          <img loading="lazy" src="img/facturas/rollManzana.avif" alt="Roll de Manzana">
-          <h3>Roll de Manzana</h3>
           <div class="controles">
             <select class="tipo-unidad"><option>Docena</option><option>Unidad</option></select>
             <input type="number" class="cantidad" value="1" min="1">
@@ -376,7 +327,7 @@
 
     <!-- MEDIALUNAS -->
     <section class="seccion-categoria" data-categoria="medialunas">
-      <h2 class="titulo-categoria">🌙 Medialunas</h2>
+      <h2 class="titulo-categoria">Medialunas</h2>
       <div class="grilla-productos">
 
         <div class="producto-card" data-categoria="medialunas" data-nombre="croissant">
@@ -419,16 +370,6 @@
           <button class="btn-agregar">Agregar al Pedido</button>
         </div>
 
-        <div class="producto-card" data-categoria="medialunas" data-nombre="medialuna multigrano">
-          <img loading="lazy" src="img/medialunas/medialunaMultigrano.jpg" alt="Medialuna Multigrano">
-          <h3>Medialuna Multigrano</h3>
-          <div class="controles">
-            <select class="tipo-unidad"><option>Docena</option><option>Unidad</option></select>
-            <input type="number" class="cantidad" value="1" min="1">
-          </div>
-          <button class="btn-agregar">Agregar al Pedido</button>
-        </div>
-
         <div class="producto-card" data-categoria="medialunas" data-nombre="medialuna salada">
           <img loading="lazy" src="img/medialunas/medialunaSalada.webp" alt="Medialuna Salada">
           <h3>Medialuna Salada</h3>
@@ -453,14 +394,14 @@
     </section>
 
     <div id="sin-resultados">
-      <p>😕 No encontramos productos con esa búsqueda.</p>
+      <p>No encontramos productos con esa búsqueda.</p>
     </div>
 
   </div><!-- fin #catalogo -->
 
   <!-- Botón flotante -->
   <button id="boton-carrito">
-    🛒 Mi Pedido
+    Mi Pedido
     <span class="badge" id="contador-carrito">0</span>
   </button>
 
@@ -468,10 +409,10 @@
   <div id="overlay-carrito">
     <div id="modal-carrito">
       <button class="cerrar-modal">✕</button>
-      <h2>🛒 Tu Pedido</h2>
+      <h2>Tu Pedido</h2>
       <ul id="lista-carrito"></ul>
       <div id="carrito-vacio" class="carrito-vacio">
-        <p>Todavía no agregaste nada 😊<br>¡Elegí tus productos y armamos el pedido!</p>
+        <p>Todavía no agregaste nada.<br>Elegí tus productos y armamos el pedido.</p>
       </div>
       <button id="btn-enviar-wa">
         <img src="img/social/WhatsApp.svg-removebg-preview.png" alt="WA" class="wa-icon-modal" loading="lazy">

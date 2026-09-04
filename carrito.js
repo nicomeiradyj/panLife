@@ -19,7 +19,7 @@ document.querySelectorAll('.btn-agregar').forEach(btn => {
 
     actualizarBadge();
 
-    btn.textContent = '¡Agregado! 👍';
+    btn.textContent = '¡Agregado!';
     btn.classList.add('agregado');
     setTimeout(() => {
       btn.textContent = 'Agregar al Pedido';
@@ -79,7 +79,7 @@ function renderizarCarrito() {
     li.innerHTML = `
       <span class="item-nombre">${item.nombre}</span>
       <span class="item-detalle">${item.cantidad} ${item.unidad}</span>
-      <button class="btn-eliminar" title="Eliminar">🗑️</button>
+      <button class="btn-eliminar" title="Eliminar">✕</button>
     `;
     li.querySelector('.btn-eliminar').addEventListener('click', () => eliminarItem(idx));
     lista.appendChild(li);
@@ -105,9 +105,9 @@ document.getElementById('btn-vaciar').addEventListener('click', () => {
 document.getElementById('btn-enviar-wa').addEventListener('click', () => {
   if (!carrito.length) return;
   const tel = WHATSAPP_NUMERO;
-  let msg = "Hola panLife! 👋 Quiero hacer el siguiente pedido:%0A%0A";
+  let msg = "Hola panLife! Quiero hacer el siguiente pedido:%0A%0A";
   carrito.forEach(i => { msg += `• ${i.nombre}: ${i.cantidad} ${i.unidad}%0A`; });
-  msg += "%0A¿Me pueden pasar el presupuesto? ¡Gracias! 🙏";
+  msg += "%0A¿Me pueden pasar el presupuesto? ¡Gracias!";
   window.open(`https://wa.me/${tel}?text=${msg}`, '_blank');
 });
 
@@ -134,9 +134,10 @@ function filtrarProductos() {
 
   document.querySelectorAll('.seccion-categoria').forEach(sec => {
     let hayEnSec = false;
+    const esNuevo = sec.dataset.categoria === 'nuevo';
 
     sec.querySelectorAll('.producto-card').forEach(card => {
-      const coincideCat  = categoriaActiva === 'todos' || card.dataset.categoria === categoriaActiva;
+      const coincideCat  = categoriaActiva === 'todos' || (!esNuevo && card.dataset.categoria === categoriaActiva);
       const nombreNormalizado = card.dataset.nombre.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       const coincideText = !texto || nombreNormalizado.includes(textoNormalizado);
 
@@ -153,15 +154,15 @@ function filtrarProductos() {
   });
 
   document.getElementById('sin-resultados').style.display = hayAlgo ? 'none' : 'block';
+}
 
-  // --- Boton volver arriba ---
-  const btnVolver = document.getElementById('btn-volver-arriba');
-  if (btnVolver) {
-    window.addEventListener('scroll', () => {
-      btnVolver.classList.toggle('visible', window.scrollY > 500);
-    });
-    btnVolver.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+// --- Boton volver arriba ---
+const btnVolver = document.getElementById('btn-volver-arriba');
+if (btnVolver) {
+  window.addEventListener('scroll', () => {
+    btnVolver.classList.toggle('visible', window.scrollY > 500);
+  });
+  btnVolver.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }

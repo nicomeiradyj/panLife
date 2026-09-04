@@ -1,11 +1,11 @@
-const SYSTEM_PROMPT = `Sos el asistente virtual de panLife, una panadería familiar de Florencio Varela que distribuye a todo el país. Tu nombre es "Pan 🥖" y hablás en español argentino informal (tuteo, "vos", "che"). Sos cálido, breve y útil.
+const SYSTEM_PROMPT = `Sos el asistente virtual de panLife, una panadería familiar de Florencio Varela que distribuye a todo el país. Tu nombre es "Pan" y hablás en español argentino informal (tuteo, "vos", "che"). Sos cálido, breve y útil.
  
 PRODUCTOS DISPONIBLES:
-🥖 Panificados: Baguette, Baguette de Salvado, Mini Baguette, Flauta, Flauta de Salvado, Mignoncito, Pan Panini, Pan Petit, Pan Petit de Salvado
-🫓 Panes Especiales: Chipa de Queso, Scones de Queso, Bagel de Salvado, Criollito de Grasa, Cremona, Pan de Campo, Bollo Campesino, Figaza Arabe, Pan Lomitero
-🍕 Prepizzas: Prepizza de Tomate, Prepizza de Cebolla, Pizzeta de Tomate, Pizzeta de Cebolla
-🥐 Facturas: Plancha de Hojaldre, Panal de Membrillo, Panal de Batata, Panal de Pastelera, Roll de Manzana, Palitos de Grasa
-🌙 Medialunas: Croissant, Medialuna de Manteca, Medialuna de Manteca Chica, Medialuna Mar del Plata, Medialuna Multigrano, Medialuna Salada, Medialuna de Grasa
+Panificados: Pan de Hamburguesa (nuevo), Baguette, Mini Baguette, Flauta, Mignoncito, Pan Panini, Pan Petit
+Panes Especiales: Chipá, Scones de Queso, Criollito de Grasa, Cremona, Pan de Campo, Bollo Campesino, Figaza Arabe, Pan Lomitero
+Prepizzas: Prepizza de Tomate, Prepizza de Cebolla, Pizzeta de Tomate, Pizzeta de Cebolla
+Facturas: Plancha de Hojaldre, Palitos de Grasa
+Medialunas: Croissant, Medialuna de Manteca, Medialuna de Manteca Chica, Medialuna Mar del Plata, Medialuna Salada, Medialuna de Grasa
  
 INFORMACIÓN DE LA EMPRESA:
 - Empresa familiar (familia Helman), base en Florencio Varela, distribuyen a todo el país
@@ -23,7 +23,7 @@ REGLAS PARA VOS:
 - Nunca inventes precios ni hagas promesas de descuento
 - Para precios o consultas especiales, siempre derivá al WhatsApp
 - Si te preguntan algo que no sabés, decí que lo consulten por WhatsApp
-- No uses markdown en exceso. Solo emojis ocasionales para dar calidez.`;
+- No uses emojis. Evitá el markdown en exceso (solo negritas o listas cortas si hace falta).`;
  
 let historialChat = [];
  
@@ -254,15 +254,18 @@ const styleEl = document.createElement('style');
 styleEl.textContent = estilos;
 document.head.appendChild(styleEl);
  
+const ICONO_CHAT = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+const ICONO_ENVIAR = '<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+
 const chatHTML = `
   <button id="chat-boton" onclick="toggleChat()" title="Hablar con el asistente">
-    <span id="chat-emoji">💬</span>
+    <span id="chat-emoji">${ICONO_CHAT}</span>
     <span class="chat-badge" id="chat-badge"></span>
   </button>
  
   <div id="chat-panel">
     <div id="chat-header">
-      <div class="avatar">🥖</div>
+      <div class="avatar">P</div>
       <div class="info">
         <strong>Pan — Asistente panLife</strong>
         <span>En línea ahora</span>
@@ -278,7 +281,7 @@ const chatHTML = `
         onkeydown="if(event.key==='Enter') enviarMensaje()"
         maxlength="300"
       >
-      <button id="chat-enviar" onclick="enviarMensaje()">➤</button>
+      <button id="chat-enviar" onclick="enviarMensaje()">${ICONO_ENVIAR}</button>
     </div>
   </div>
 `;
@@ -289,7 +292,7 @@ chatContainer.innerHTML = chatHTML;
 document.body.appendChild(chatContainer);
  
 function mostrarBienvenida() {
-  agregarMensaje('bot', '¡Hola! 👋 Soy Pan, el asistente de panLife. Puedo ayudarte a conocer nuestros productos, responder tus dudas o guiarte para hacer tu pedido. ¿En qué te ayudo?');
+  agregarMensaje('bot', '¡Hola! Soy Pan, el asistente de panLife. Puedo ayudarte a conocer nuestros productos, responder tus dudas o guiarte para hacer tu pedido. ¿En qué te ayudo?');
 }
  
 let chatAbierto = false;
@@ -301,7 +304,7 @@ function toggleChat() {
   const badge = document.getElementById('chat-badge');
  
   panel.classList.toggle('visible', chatAbierto);
-  document.getElementById('chat-emoji').textContent = chatAbierto ? '✕' : '💬';
+  document.getElementById('chat-emoji').innerHTML = chatAbierto ? '✕' : ICONO_CHAT;
   badge.style.display = 'none';
  
   if (chatAbierto && !bienvenidaMostrada) {
@@ -375,7 +378,7 @@ async function enviarMensaje() {
     }
   } catch (err) {
     ocultarTyping();
-    agregarMensaje('bot', 'Ups, tuve un problema para conectarme. Podés escribirnos directamente por WhatsApp al +54 9 11 4042-1634 😊');
+    agregarMensaje('bot', 'Ups, tuve un problema para conectarme. Podés escribirnos directamente por WhatsApp al +54 9 11 4042-1634');
     console.error('Gemini error:', err);
   }
  

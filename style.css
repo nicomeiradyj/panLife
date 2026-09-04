@@ -484,6 +484,7 @@ p {
    PRODUCTOS PAGE - Tarjeta de producto
    ============================================================ */
 .producto-card {
+  position: relative;
   background: var(--blanco);
   border-radius: 16px;
   padding: 18px;
@@ -531,6 +532,101 @@ p {
 
 .seccion-categoria.vacia {
   display: none;
+}
+
+/* --- Seccion Nuevo --- */
+.seccion-nuevo .titulo-categoria {
+  color: var(--verde);
+  border-bottom: 3px solid #d3efe0;
+}
+
+.badge-nuevo {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--naranja);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.producto-descripcion {
+  width: 100%;
+  font-size: 0.82rem;
+  color: var(--gris-texto);
+  margin: -6px 0 12px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* --- Banner nuevo producto (home) --- */
+.banner-nuevo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 1100px;
+  margin: 20px auto 0;
+  padding: 12px 20px;
+  background: var(--blanco);
+  border: 1px solid #e8e2d5;
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+  text-decoration: none;
+  color: #333;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.banner-nuevo:hover {
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.banner-nuevo-badge {
+  background: var(--naranja);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 50px;
+  flex-shrink: 0;
+}
+
+.banner-nuevo-texto {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.banner-nuevo-cta {
+  background: var(--verde);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 50px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.banner-nuevo:hover .banner-nuevo-cta {
+  background: var(--verde-oscuro);
+}
+
+@media (max-width: 640px) {
+  .banner-nuevo-texto {
+    font-size: 0.85rem;
+  }
+  .banner-nuevo-cta {
+    font-size: 0.78rem;
+    padding: 8px 12px;
+  }
 }
 
 /* ============================================================

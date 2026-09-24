@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://panlife.com.ar/sitemap.xml

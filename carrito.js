@@ -66,7 +66,7 @@ document.querySelectorAll('.btn-agregar').forEach(btn => {
 
     actualizarBadge();
 
-    btn.textContent = '¡Agregado! 👍';
+    btn.textContent = '¡Agregado!';
     btn.classList.add('agregado');
     setTimeout(() => {
       btn.textContent = 'Agregar al Pedido';
@@ -135,7 +135,7 @@ function renderizarCarrito() {
     btnEliminar.className = 'btn-eliminar';
     btnEliminar.title = 'Eliminar';
     btnEliminar.setAttribute('aria-label', `Eliminar ${item.nombre}`);
-    btnEliminar.textContent = '🗑️';
+    btnEliminar.textContent = '✕';
     btnEliminar.addEventListener('click', () => eliminarItem(idx));
 
     li.append(nombre, detalle, btnEliminar);
@@ -163,11 +163,11 @@ document.getElementById('btn-enviar-wa').addEventListener('click', () => {
   if (!carrito.length) return;
   const tel = WHATSAPP_NUMERO;
   const lineas = [
-    'Hola panLife! 👋 Quiero hacer el siguiente pedido:',
+    'Hola panLife! Quiero hacer el siguiente pedido:',
     '',
     ...carrito.map(i => `• ${i.nombre}: ${i.cantidad} ${i.unidad}`),
     '',
-    '¿Me pueden pasar el presupuesto? ¡Gracias! 🙏'
+    '¿Me pueden pasar el presupuesto? ¡Gracias!'
   ];
   const msg = encodeURIComponent(lineas.join('\n'));
   window.open(`https://wa.me/${tel}?text=${msg}`, '_blank', 'noopener,noreferrer');
@@ -196,9 +196,10 @@ function filtrarProductos() {
 
   document.querySelectorAll('.seccion-categoria').forEach(sec => {
     let hayEnSec = false;
+    const esNuevo = sec.dataset.categoria === 'nuevo';
 
     sec.querySelectorAll('.producto-card').forEach(card => {
-      const coincideCat  = categoriaActiva === 'todos' || card.dataset.categoria === categoriaActiva;
+      const coincideCat  = categoriaActiva === 'todos' || (!esNuevo && card.dataset.categoria === categoriaActiva);
       const nombreNormalizado = card.dataset.nombre.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       const coincideText = !texto || nombreNormalizado.includes(textoNormalizado);
 
